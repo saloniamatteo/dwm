@@ -15,7 +15,7 @@ esac
 
 micstat=$(amixer sget Capture | tail -n 1 | awk '{print $6}' | tr -d "[]")
 
-[ $(pamixer --get-mute) = true ] && echo "🔇 🎤$micstat|" && exit
+[ $(pamixer --get-mute) = true ] && echo "|🔇 🎤$micstat|" && exit
 
 vol="$(pamixer --get-volume)"
 
