@@ -7,7 +7,7 @@ Modular status bar for dwm written in c.
 The statusbar is made from text output from commandline programs.  Blocks are
 added and removed by editing the config.h file.
 
-# Luke's build
+# Salonia Matteo's build (forked from Luke Smith)
 
 dwmblocks reads scripts from your `$PATH`. I have included the scripts I use (you can find them here), 
 but you can also use [Luke Smith's scripts](https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar).
