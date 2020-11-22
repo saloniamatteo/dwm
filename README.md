@@ -32,15 +32,12 @@ This repository includes my fork of Luke Smith's build of dwmblocks.
 	- Caps Lock indicator
 
 	![On](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-capslock-on.png)
-
 	![Off](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-capslock-off.png)
 
 	- Brightness indicator
 
 	![High Brightness](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-brightness-high.png)
-
 	![Mid Brightness](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-brightness-mid.png)
-
 	![Low Brightness](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-brightness-low.png)
 
 	- RAM usage
@@ -54,19 +51,14 @@ This repository includes my fork of Luke Smith's build of dwmblocks.
 	- Volume indicator, as well as microphone status (on/off)
 
 	![Vol High](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-vol-high.png)
-
 	![Vol Mid](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-vol-mid.png)
-
 	![Vol Low](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-vol-low.png)
-
 	![Vol Mute](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-vol-mute.png)
 
 	- Fan speed indicator (a = auto, [1-7] is normal level, max = full speed). NOTE: this only works on ThinkPads, so modify the script for your system accordingly if you want to use it.
 
 	![Fan Auto](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-fan-auto.png)
-
 	![Fan 5](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-fan-5.png)
-
 	![Fan Max](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-fan-max.png)
 
 	- Internet (Wi-Fi/Ethernet) indicator
@@ -76,7 +68,6 @@ This repository includes my fork of Luke Smith's build of dwmblocks.
 	- Battery status (Charging/Discharging/Unknown) & capacity indicator
 
 	![Bat Charging](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-bat-charging.png)
-
 	![Bat Discharging](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-bat-discharging.png)
 
 	- Date and time indicator
