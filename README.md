@@ -10,7 +10,7 @@ To be clear, [bin](https://github.com/GoDzM4TT3O/dwm/master/dwmblocks/bin) inclu
 
 - Clickable statusbar with Luke Smith's build of [dwmblocks](https://github.com/lukesmithxyz/dwmblocks).
 - Reads xresources colors/variables (i.e. works with `pywal`, etc.).
-- scratchpad: Accessible with Alt+Shift+Enter (or Alt+0).
+- scratchpad: Accessible with `Alt+Shift+Enter` (will open `st` in the scratchpad) or `Alt+0` (will access all programs in the scratchpad).
 - New layouts: bstack, fibonacci, deck, centered master and more. All bound to keys `Alt+(Shift+)T/Y/U/I`.
 - True fullscreen (`Alt+F`) and prevents focus shifting.
 - Windows can be made sticky (`Alt+S`).
