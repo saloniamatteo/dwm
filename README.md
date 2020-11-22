@@ -4,7 +4,7 @@ This build of dwm has an updated `man` page over at [`dwm.1`](https://github.com
 
 Also, it includes dwmblocks, as well as the scripts I use. Please install dmwblocks separately, as the Makefile included in this directory does not install it for you (you have to `cd dwmblocks; make; sudo make install` yourself)
 
-To be clear, [bin](https://github.com/GoDzM4TT3O/dwm/master/dwmblocks/bin) includes the scripts that make the statusbar work, meanwhile [scripts](https://github.com/GoDzM4TT3O/dwm/master/scripts) includes scripts accessible from dwm by using keybindings, like locking the screen with Super+Shift+L (requires slock, you can get [my build here](https://github.com/GoDzM4TT3O/dotfiles/tree/master/slock))
+To be clear, [bin](https://github.com/GoDzM4TT3O/dwm/tree/master/dwmblocks/bin) includes the scripts that make the statusbar work, meanwhile [scripts](https://github.com/GoDzM4TT3O/dwm/tree/master/scripts) includes scripts accessible from dwm by using keybindings, like locking the screen with Super+Shift+L (requires slock, you can get [my build here](https://github.com/GoDzM4TT3O/dotfiles/tree/master/slock))
 
 ## Patches and features
 
