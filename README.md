@@ -29,30 +29,30 @@ This build of dwm does not block color emoji in the status/info bar, so you must
 ### Misc
 
 St
-![St](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/preview-st.png)
+![St](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/preview-st.png)
 
 Floating window
-![Floating window](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/preview-floating-win.png)
+![Floating window](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/preview-floating-win.png)
 
 No windows
-![No windows](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/preview-nowin.png)
+![No windows](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/preview-nowin.png)
 
 ### Layouts
 
 Tile
-![Tile](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-tile.png)
+![Tile](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/layouts-tile.png)
 
 Bstack
-![Bstack](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-bstack.png)
+![Bstack](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/layouts-bstack.png)
 
 Spiral
-![Spiral](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-spiral.png)
+![Spiral](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/layouts-spiral.png)
 
 Dwindle
-![Dwindle](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-dwindle.png)
+![Dwindle](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/layouts-dwindle.png)
 
 Centered Master
-![Centered Master](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-centeredmaster.png)
+![Centered Master](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/layouts-centeredmaster.png)
 
 Centered Floating Master
-![Centered Floating Master](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-centeredfloatingmaster.png)
+![Centered Floating Master](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/layouts-centeredfloatingmaster.png)
