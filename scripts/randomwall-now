@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# random wallpaper
+pape=$(ls ~/wallpapers | sort -R | tail -1)
+hsetroot -cover ~/wallpapers/$pape
+notify-send "Random Wallpaper" "Set $pape as wallpaper"

@@ -1,0 +1,39 @@
+#!/bin/bash
+# download youtube videos and save them as mp3s
+
+# If clipboard is empty tell the user and exit
+[[ $(xclip -o) = "" ]] && notify-send -u critical "Downloader" "Clipboard is empty!"
+
+# Ask the user to enter a valid URL or get it from their clipboard
+url=$(xclip -o | dmenu -i -p "Enter a valid youtube url:")
+
+# If there is no url tell the user and exit
+[[ $url = "" ]] && notify-send -u critical "Downloader" "There is no URL!" && exit 1
+
+# Check if url matches regex:
+# the first part checks if the url starts with:
+#	-> http:// or http://www.
+#	-> https:// or https://www.
+# then, after "youtu", we check if it ends with:
+#	-> .be		(youtu.be)
+#	-> be.com	(youtube.com)
+# the final part checks the ID of the video, after the "/"
+# if we use the short domain, the ID must not include "watch?v="
+# if we use the long domain, the ID must include "watch?v="
+# short domain:		https://youtu.be/videoID
+# long domain:		https://youtube.com/watch?v=videoID
+if [[ $url =~ (http://|http://www.|https://|https://www.)youtu(.be|be.com)/([a-z]+|watch\?v=[a-z]+) ]]; then
+
+	# Check if $HOME/Music exists (same as ~/Music)
+	[ ! -d "$HOME/Music" ] && notify-send "Downloader" "$HOME/Music directory does not exist, creating..." && mkdir "$HOME/Music"
+
+	# notify the user that download is starting and start downloading
+	# if it was successful, tell the user
+	# if it was not, warn him
+	notify-send "Downloader" "Starting download! URL: $url" && youtube-dlc -x --embed-thumbnail --audio-format mp3 -f bestaudio --audio-quality 0 -c -i "$url" --cookies $HOME/cookies -o "$HOME/Music/%(title)s.%(ext)s" && notify-send "Downloader" "Successfully downloaded youtube video into $HOME/Music!" || notify-send -u critical "Downloader" "An error occurred!"
+
+# if the URL does not match the regex
+else
+	# warn the user
+	notify-send -u critical "Downloader" "Error: requested URL does not match regex!"
+fi

@@ -1,0 +1,36 @@
+#!/bin/bash
+# script that warns the user if battery
+# capacity is less than 20 and less than 10
+# this runs with cron (see "man crontab")
+
+# get a list of batteries
+for battery in /sys/class/power_supply/BAT?
+do
+	# get various information: capacity (%), status (charging/discharging/unknown), battery name.
+	# get capacity
+	capacity=$(cat "$battery"/capacity)
+
+	# this transforms a number like "9" to "09"
+	# because bash fails if there is a statement checking
+	# if 9 < 10, but works if 09 < 10
+	[[ $capacity =~ ^[0-9]$ ]] && capacity="0${capacity}"
+
+	# get the current battery status (charging/discharging)
+	status=$(cat "$battery"/status)
+
+	# get only the name of the battery
+	batteryname=$(echo $battery | grep -Eo "BAT[0-9]")
+
+	# make a beep sound
+	function makebeep() {
+		speaker-test -t sine -f 1000 & pid=$!; sleep 0.1s; kill -9 $pid
+	}
+
+	# avoid sending unnecessary notifications
+	[[ $capacity = 100 ]] && exit 0
+
+	# if capacity is less than 10% and the battery isn't charging, send a notification (will go away in 30 seconds)
+	[[ $capacity < 10 && $status = "Discharging" || $capacity < 10 && $status = "Unknown" ]] && makebeep && /usr/bin/notify-send -u critical -t 30000 "Battery $batteryname charge very low " "Please charge battery $batteryname, its capacity is $capacity%." && exit 0
+	# if capacity is less than 20% and the battery isn't charging, send a notification (will go away in 30 seconds)
+	[[ $capacity < 20 && $status = "Discharging" || $capacity < 20 && $status = "Discharging" ]] && makebeep && /usr/bin/notify-send -u critical -t 30000 "Battery $batteryname charge low " "Please charge battery $batteryname, its capacity is $capacity%."
+done

@@ -1,0 +1,32 @@
+#!/bin/bash
+# get reminded of something
+
+# where to store what to be reminded of
+# the part after "/tmp/whatfile-" gets a random string of 5 characters
+whatfile=/tmp/whatfile-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-5} | head -n 1)
+
+# ask the user to input a date and hour
+time=$(echo "" | dmenu -i -p "When do you want to be reminded? (Please follow the HH:MM format)")
+
+# if input is blank exit
+[[ $time = "" ]] && exit 0
+
+# if the time is valid
+if [[ $time =~ [0-9].\:[0-9] ]]; then
+	# ask the user what to be reminded of
+	what=$(echo "" | dmenu -i -p "What do you want to be reminded of?")
+	# if the input is blank exit
+	[[ $what = "" ]] && exit 0
+	# store what to remind the user in $whatfile
+	printf "notify-send \"Reminder\" \"$what\"\nspeaker-test -t sine -f 1000 & pid=\$!; sleep 0.1s; kill -9 \$pid\n" > $whatfile
+	echo $whatfile
+	# tell at to remind the user at $time and to read from $whatfile
+	# then after 1 minute delete $whatfile
+	at $time -f $whatfile && sleep 60 && rm $whatfile
+# if time is not valid
+else
+	# warn the user that it's not a valid time
+	notify-send -u critical "Reminder" "That's not a valid time!"
+	exit 0
+fi
+

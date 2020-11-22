@@ -1,0 +1,15 @@
+#!/bin/bash
+# enable/disable webcam
+
+# which webcam to use
+webcamfile=/dev/video0
+
+# if webcam exists
+if [ -e "$webcamfile" ]; then
+
+	# Webcam is enabled
+	sudo modprobe -rf uvcvideo && notify-send "Webcam" "Webcam was succesfully disabled" || notify-send "Webcam" "Couldn't disable webcam"
+else
+	# Webcam is disabled
+	sudo modprobe uvcvideo && notify-send "Webcam" "Webcam was succesfully enabled" || notify-send "Webcam" "Couldn't enable webcam"
+fi
