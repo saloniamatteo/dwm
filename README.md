@@ -24,6 +24,21 @@ To be clear, [bin](https://github.com/GoDzM4TT3O/dwm/tree/master/dwmblocks/bin) 
 
 This build of dwm does not block color emoji in the status/info bar, so you must install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) from the AUR, which fixes a libxft color emoji rendering problem, otherwise dwm will crash upon trying to render one. Hopefully this fix will be in all libxft soon enough.
 
+## dwmblocks
+
+This repository includes my fork of Luke Smith's build of dwmblocks.
+
++ Available blocks explained, from left to right:
+	- Caps Lock indicator
+	- Brightness indicator
+	- RAM usage
+	- CPU temperature
+	- Volume indicator, as well as microphone status (on/off)
+	- Fan speed indicator (a = auto, [1-7] is normal level, max = full speed). NOTE: this only works on ThinkPads, so modify the script for your system accordingly if you want to use it.
+	- Wi-Fi/Ethernet indicator
+	- Battery status & level indicator
+	- Date and time indicator
+
 ## Previews
 
 ### Misc
