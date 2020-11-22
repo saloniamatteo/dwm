@@ -23,3 +23,36 @@ To be clear, [bin](https://github.com/GoDzM4TT3O/dwm/tree/master/dwmblocks/bin) 
 ## Please install `libxft-bgra`!
 
 This build of dwm does not block color emoji in the status/info bar, so you must install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) from the AUR, which fixes a libxft color emoji rendering problem, otherwise dwm will crash upon trying to render one. Hopefully this fix will be in all libxft soon enough.
+
+## Previews
+
+### Misc
+
+St
+![St](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/preview-st.png)
+
+Floating window
+![Floating window](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/preview-floating-win.png)
+
+No windows
+![No windows](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/preview-nowin.png)
+
+### Layouts
+
+Tile
+![Tile](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-tile.png)
+
+Bstack
+![Bstack](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-bstack.png)
+
+Spiral
+![Spiral](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-spiral.png)
+
+Dwindle
+![Dwindle](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-dwindle.png)
+
+Centered Master
+![Centered Master](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-centeredmaster.png)
+
+Centered Floating Master
+![Centered Floating Master](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/Previews/layouts-centeredfloatingmaster.png)
