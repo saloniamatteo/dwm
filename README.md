@@ -28,7 +28,7 @@ This build of dwm does not block color emoji in the status/info bar, so you must
 
 This repository includes my fork of Luke Smith's build of dwmblocks.
 
-Available blocks explained, from left to right:
++ Available blocks explained, from left to right:
 	- Caps Lock indicator
 	![On](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-capslock-on.png)
 	![Off](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/blocks-capslock-off.png)
