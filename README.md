@@ -6,6 +6,11 @@ Also, it includes dwmblocks, as well as the scripts I use. Please install dmwblo
 
 To be clear, [bin](https://github.com/GoDzM4TT3O/dwm/tree/master/dwmblocks/bin) includes the scripts that make the statusbar work, meanwhile [scripts](https://github.com/GoDzM4TT3O/dwm/tree/master/scripts) includes scripts accessible from dwm by using keybindings, like locking the screen with Super+Shift+L (requires slock, you can get [my build here](https://github.com/GoDzM4TT3O/dotfiles/tree/master/slock))
 
+I also created a custom patch ([`dwm-systray.diff`](https://github.com/GoDzM4TT3O/dwm/blob/master/patches/dwm-systray.diff)) that implements a systray (system tray). To patch an existing dwm build, copy the file in your build's directory, then run this command: `patch < dwm-systray.diff`. Then, if there were no errors, run `make clean`, then build it with `make` and finally `sudo make install`.
+
+Here's how the systray looks (applets are `copyq` and `nm-applet`)
+![Systray](https://raw.githubusercontent.com/GoDzM4TT3O/dwm/master/Previews/systray.png)
+
 ## Patches and features
 
 - Added a systray (the new patch is available in the [patches folder](https://github.com/GoDzM4TT3O/dwm/tree/master/patches))
