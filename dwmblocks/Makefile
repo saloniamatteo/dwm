@@ -5,6 +5,9 @@ CC = gcc
 
 dwmblocks: dwmblocks.o
 	$(CC) dwmblocks.o -lX11 -o dwmblocks
+	mkdir -p "${HOME}/.local/bin"
+	chmod 755 "${HOME}/.local/bin"
+	cp -r bin "${HOME}/.local/bin"
 dwmblocks.o: dwmblocks.c config.h
 	$(CC) -c dwmblocks.c
 clean:
@@ -13,9 +16,6 @@ install: dwmblocks
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp -f dwmblocks $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dwmblocks
-	mkdir -p "$HOME/.local/bin"
-	chmod 755 "$HOME/.local/bin"
-	cp -r bin "$HOME/.local/bin"
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/dwmblocks

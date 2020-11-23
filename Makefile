@@ -21,6 +21,9 @@ ${OBJ}: config.h config.mk
 
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
+	mkdir -p "${HOME}/.config/scripts"
+	chmod 755 "${HOME}/.config/scripts"
+	cp -r scripts "${HOME}/.config/scripts"
 
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz *.orig *.rej
@@ -41,9 +44,6 @@ install: all
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	mkdir -p ${DESTDIR}${PREFIX}/share/dwm
-	mkdir -p "$HOME/.config/scripts"
-	chmod 755 "$HOME/.config/scripts"
-	cp -r scripts "$HOME/.config/scripts"
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
