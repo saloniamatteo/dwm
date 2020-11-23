@@ -2,15 +2,15 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/			/*Update Interval*/	/*Update Signal*/
 	/*{"|⌨ ",	"kbselect",			0,			30}, */
-	{"|🔒",		"capslock",			1,			2},
-	{"|",		"brightness",			0,			11},
-	{"|🖥",		"memory",			10,			14}, 
-	{"|🌡",		"cpu",				10,			18},
+	{"🔒",		"capslock",			1,			2},
+	{"",		"brightness",			0,			11},
+	{"🖥",		"memory",			10,			14}, 
+	{"🌡",		"cpu",				10,			18},
 	{"",		"volume",			0,			10},
-	{"|💨",		"fanspeed",			5,			12},
+	{"💨",		"fanspeed",			5,			12},
 	{"",		"internet",			5,			4},
 	{"",		"battery",			5,			3},
-	{"|📅",		"clock",			20,			1},
+	{"📅",		"clock",			20,			1},
 /* 	{"",		"moonphase",			18000,			17}, */
 /* 	{"",		"forecast",			18000,			5}, */
 /* 	{"",		"mailbox",			180,			12}, */

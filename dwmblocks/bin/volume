@@ -14,10 +14,12 @@ case $BLOCK_BUTTON in
 esac
 
 micstat=$(amixer sget Capture | tail -n 1 | awk '{print $6}' | tr -d "[]")
+[[ $micstat = "" ]] && micstat="off"
 
-[ $(pamixer --get-mute) = true ] && echo "|🔇 🎤$micstat|" && exit
+[ $(pamixer --get-mute) = true ] && echo "🔇 🎤$micstat" && exit
 
 vol="$(pamixer --get-volume)"
+[[ "$vol" = 0 || "$vol" = "" ]] && echo "🔇 🎤$micstat" && exit
 
 if [ "$vol" -gt "70" ]; then
 	icon="🔊"
@@ -27,4 +29,4 @@ else
 	icon="🔉"
 fi
 
-echo "|$icon$vol% 🎤$micstat|"
+echo "$icon$vol% 🎤$micstat"

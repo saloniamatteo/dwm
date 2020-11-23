@@ -4,10 +4,10 @@
 speed=$(cat /proc/acpi/ibm/fan | grep level | head -n 1 | awk '{print $2}')
 
 if [ "$speed" = "auto" ]; then
-	echo " a|"
+	echo " a"
 else if [ "$speed" = "disengaged" ]; then
-	echo " max|"
+	echo " max"
 else
-	echo " $speed|"
+	echo " $speed"
 fi
 fi

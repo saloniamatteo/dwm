@@ -9,4 +9,4 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-free --mega | sed -n '2{p;q}' | awk '{printf ("%2.2fGB/%2.2fGB|\n", ( $3 / 1000), ($2 / 1000))}'
+free --mega | sed -n '2{p;q}' | awk '{printf ("%2.2fGB/%2.2fGB\n", ( $3 / 1000), ($2 / 1000))}'
