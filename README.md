@@ -8,6 +8,7 @@ To be clear, [bin](https://github.com/GoDzM4TT3O/dwm/tree/master/dwmblocks/bin) 
 
 ## Patches and features
 
+- Added a systray (the new patch is available in the [patches folder](https://github.com/GoDzM4TT3O/dwm/tree/master/patches))
 - Clickable statusbar with Luke Smith's build of [dwmblocks](https://github.com/lukesmithxyz/dwmblocks).
 - Reads xresources colors/variables (i.e. works with `pywal`, etc.).
 - scratchpad: Accessible with `Alt+Shift+Enter` (will open `st` in the scratchpad) or `Alt+0` (will access all programs in the scratchpad).
