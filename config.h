@@ -282,7 +282,7 @@ static Key keys[] = {
 	/* Launch dmenu */
 	{ MODKEY|ShiftMask,		XK_d,		spawn,		SHCMD("dmenu") },
 	/* Launch rofi */
-	{ MODKEY,			XK_d,		spawn,		SHCMD("rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'") },
+	{ MODKEY,			XK_d,		spawn,		SHCMD("rofi -show-icons -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'") },
 	/* Launch networkmanager-dmenu */
 	{ SUPERKEY,			XK_n,		spawn,		SHCMD("networkmanager_dmenu") },
 
