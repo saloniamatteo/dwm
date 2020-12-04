@@ -1,0 +1,13 @@
+#!/bin/sh
+
+printf "\
+[]= Tiled Layout			0
+TTT BStack Layout			1
+[@] Spiral Layout			2
+[\\] Dwindle Layout			3
+H[] Deck Layout				4
+[M] Monocle Layout			5
+|M| CenteredMaster Layout		6
+>M> CenteredFloatingMaster Layout	7
+><> Floating Layout			8
+" | xmenu
