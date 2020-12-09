@@ -320,7 +320,6 @@ static Key keys[] = {
 	/* >>>SCRIPTS<<< */
 	/* These keybindings will be used to launch scripts */
 	/* [SUPER-BOUND] */
-	{ SUPERKEY,			XK_c,		spawn,		SHCMD("st -e ~/.config/scripts/classroom") },
 	{ SUPERKEY,			XK_d,		spawn,		SHCMD("st -e ~/.config/scripts/displayselect") },
 	{ SUPERKEY,			XK_i,		spawn,		SHCMD("st -e ~/.config/scripts/inactivity") },
 	{ SUPERKEY,			XK_m,		spawn,		SHCMD("st -e ~/.config/scripts/dmenumount") },
@@ -335,7 +334,6 @@ static Key keys[] = {
 
 	/* [FNKEY-BOUND] */
 	{ 0, XF86XK_Display,				spawn,		SHCMD("st -e ~/.config/scripts/webcam") },
-	{ 0, XF86XK_Explorer,				spawn,		SHCMD("st -e ~/.config/scripts/orario") },
 	{ 0, XF86XK_LaunchA,				spawn,		SHCMD("st -e ~/.config/scripts/launcher") },
 	{ 0, XF86XK_MonBrightnessDown,			spawn,		SHCMD("xbacklight -dec 10; kill -45 $(pidof dwmblocks)") },
 	{ 0, XF86XK_MonBrightnessUp,			spawn,		SHCMD("xbacklight -inc 10; kill -45 $(pidof dwmblocks)") },
