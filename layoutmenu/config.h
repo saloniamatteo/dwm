@@ -274,7 +274,7 @@ static Key keys[] = {
 
 	/* [VIDEO] */
 	/* Take a screenshot */
-	{ 0,				XK_Print,	spawn,		SHCMD("cd ~/Pictures && scrot 'Screenshot_%a-%d%b%y_%H.%M.png' -e 'sxiv $f'") },
+	{ 0,				XK_Print,	spawn,		SHCMD("cd ~/Pictures && scrot 'Screenshot-%d%b%4Y-%a-%H-%M-%S.png'") },
 	/* Show webcam */
 	{ MODKEY,			XK_F7,		spawn,		SHCMD("mpv av://v4l2:/dev/video0 --title=webcam /dev/video0 || notify-send -u critical 'Webcam' 'Could not open webcam!'") },
 	/* Launch obs */
@@ -323,13 +323,14 @@ static Key keys[] = {
 	{ SUPERKEY,			XK_d,		spawn,		SHCMD("st -e ~/.config/scripts/displayselect") },
 	{ SUPERKEY,			XK_i,		spawn,		SHCMD("st -e ~/.config/scripts/inactivity") },
 	{ SUPERKEY,			XK_m,		spawn,		SHCMD("st -e ~/.config/scripts/dmenumount") },
-	{ SUPERKEY,			XK_r,		spawn,		SHCMD("st -e ~/.config/scripts/reminder") },
+	{ SUPERKEY,			XK_r,		spawn,		SHCMD("st -e ~/.config/scripts/screenrecord") },
 	{ SUPERKEY,			XK_s,		spawn,		SHCMD("st -e ~/.config/scripts/music") },
 	{ SUPERKEY,			XK_t,		spawn,		SHCMD("st -e ~/.config/scripts/toggletouchpad") },
 	{ SUPERKEY,			XK_u,		spawn,		SHCMD("st -e ~/.config/scripts/dmenuumount") },
 	{ SUPERKEY,			XK_w,		spawn,	    	SHCMD("st -e ~/.config/scripts/randomwall-now") },
 	{ SUPERKEY|ShiftMask,		XK_e,		spawn,		SHCMD("st -e ~/.config/scripts/dmenuunicode") },
 	{ SUPERKEY|ShiftMask,		XK_l,		spawn,		SHCMD("st -e ~/.config/scripts/screenlock") },
+	{ SUPERKEY|ShiftMask,		XK_r,		spawn,		SHCMD("st -e ~/.config/scripts/reminder") },
 	{ SUPERKEY|ShiftMask,		XK_u,		spawn,		SHCMD("st -e ~/.config/scripts/disk-usage") },
 
 	/* [FNKEY-BOUND] */

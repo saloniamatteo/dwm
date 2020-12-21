@@ -1,4 +1,3 @@
-/* Salonia Matteo <saloniamatteo@protonmail.com>'s build of dwm */
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
@@ -61,12 +60,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	*/
-	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
-	{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
-	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
+	/* class	instance	title		tags mask	isfloating	isterminal noswallow  monitor */
+	{ "Gimp",	NULL,		NULL,		1 << 8,		0,		0,         0,        -1 },
+	{ NULL,		NULL,		"PlayOnLinux",	0,		1,		0,         0,        -1 },
+	{ NULL,		NULL,		"cpupower-gui",	0,		1,		0,         0,        -1 },
+	{ TERMCLASS,	NULL,		NULL,		0,		0,		1,         0,        -1 },
+	{ NULL,		NULL,		"Event Tester",	0,		0,		0,         1,        -1 },
+	{ NULL,		"spterm",	NULL,		SPTAG(0),	1,		1,         0,        -1 },
+	{ NULL,		"spcalc",	NULL,		SPTAG(1),	1,		1,         0,        -1 },
 };
 
 /* layout(s) */
@@ -120,10 +121,6 @@ static const char *termcmd[]  = { TERMINAL, NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		/* I have other colors in my .Xresources, so I will comment
-		 * the section below in order to use the custom colors
-		 * I have written above */
-
 		/*{ "dwm.color0",		STRING,	&normbordercolor },
 		{ "dwm.color8",		STRING,	&selbordercolor },
 		{ "dwm.color0",		STRING,	&normbgcolor },
@@ -255,6 +252,9 @@ static Key keys[] = {
 	/* Show/hide bar */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 
+	/* Lock the screen */
+	{ SUPERKEY,			XK_l,		spawn,		SHCMD("i3lock -i ~/wallpaper.png") },
+
 	/* Close DWM */
 	{ MODKEY|ShiftMask,		XK_c,		quit,		{0} },
 
@@ -272,15 +272,15 @@ static Key keys[] = {
 
 	/* [VIDEO] */
 	/* Take a screenshot */
-	{ 0,				XK_Print,	spawn,		SHCMD("cd ~/Pictures && scrot 'Screenshot_%a-%d%b%y_%H.%M.png' -e 'sxiv $f'") },
-	/* Show webcam */
+	{ 0,				XK_Print,	spawn,		SHCMD("cd ~/Pictures && scrot 'Screenshot-%d%b%4Y-%a-%H-%M-%S.png'") },
+/* Show webcam */
 	{ MODKEY,			XK_F7,		spawn,		SHCMD("mpv av://v4l2:/dev/video0 --title=webcam /dev/video0 || notify-send -u critical 'Webcam' 'Could not open webcam!'") },
 	/* Launch obs */
 	{ MODKEY,			XK_Print,	spawn,		SHCMD("obs") },
 
 	/* [LAUNCHER] */
 	/* Launch dmenu */
-	{ MODKEY|ShiftMask,		XK_d,		spawn,		SHCMD("dmenu") },
+	{ MODKEY|ShiftMask,		XK_d,		spawn,		SHCMD("dmenu_run") },
 	/* Launch rofi */
 	{ MODKEY,			XK_d,		spawn,		SHCMD("rofi -show-icons -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'") },
 	/* Launch networkmanager-dmenu */
@@ -322,6 +322,7 @@ static Key keys[] = {
 	{ SUPERKEY,			XK_i,		spawn,		SHCMD("st -e ~/.config/scripts/inactivity") },
 	{ SUPERKEY,			XK_m,		spawn,		SHCMD("st -e ~/.config/scripts/dmenumount") },
 	{ SUPERKEY,			XK_r,		spawn,		SHCMD("st -e ~/.config/scripts/reminder") },
+	{ SUPERKEY,			XK_s,		spawn,		SHCMD("st -e ~/.config/scripts/music") },
 	{ SUPERKEY,			XK_t,		spawn,		SHCMD("st -e ~/.config/scripts/toggletouchpad") },
 	{ SUPERKEY,			XK_u,		spawn,		SHCMD("st -e ~/.config/scripts/dmenuumount") },
 	{ SUPERKEY,			XK_w,		spawn,	    	SHCMD("st -e ~/.config/scripts/randomwall-now") },
