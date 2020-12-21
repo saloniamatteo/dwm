@@ -254,9 +254,6 @@ static Key keys[] = {
 	/* Show/hide bar */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 
-	/* Lock the screen */
-	{ SUPERKEY,			XK_l,		spawn,		SHCMD("i3lock -i ~/wallpaper.png") },
-
 	/* Close DWM */
 	{ MODKEY|ShiftMask,		XK_c,		quit,		{0} },
 
