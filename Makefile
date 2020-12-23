@@ -21,9 +21,6 @@ ${OBJ}: config.h config.mk
 
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
-	mkdir -p "${HOME}/.config/scripts"
-	chmod 755 "${HOME}/.config/scripts"
-	cp -r scripts "${HOME}/.config/scripts"
 
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz *.orig *.rej
@@ -47,7 +44,6 @@ install: all
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
-		${DESTDIR}${PREFIX}/share/dwm/larbs.mom\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 .PHONY: all options clean dist install uninstall
