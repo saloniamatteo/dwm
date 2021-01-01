@@ -294,7 +294,7 @@ static Key keys[] = {
 
 	/* [OTHERS] */
 	/* Open file manager */
-	{ MODKEY|ShiftMask,		XK_f,		spawn,		SHCMD("nautilus") },
+	{ MODKEY|ShiftMask,		XK_f,		spawn,		SHCMD("nemo") },
 	/* Open Firefox */
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("firefox") },
 
