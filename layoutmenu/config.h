@@ -20,20 +20,24 @@ static int smartgaps          = 0;        /* 1 means no outer gap when there is 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
-/* Bar text color 			#222222 */
-static char normbgcolor[]           = "#222222";
-/* Normal foreground color		#bbbbbb */
-static char normfgcolor[]           = "#bbbbbb";
-/* Selected foreground color		#eeeeee */
-static char selfgcolor[]            = "#eeeeee";
-/* Light Border color
- * used for focused windows		#005577 */
-static char selbordercolor[]        = "#005577";
-/* Dark Border color
- * used for unfocused windows		#004c6b */
-static char normbordercolor[]       = "#004c6b";
-/* Bar color				#005577 */	
-static char selbgcolor[]            = "#2D6996";
+
+/* Bar background color */
+static char normbgcolor[]           = "#15181E";
+
+/* Bar foreground color */
+static char normfgcolor[]           = "#7FC1E9";
+
+/* Selected foreground color */
+static char selfgcolor[]            = "#15181E";
+
+/* Light Border color used for focused windows */
+static char selbordercolor[]        = "#8C9CA8";
+
+/* Dark Border color used for unfocused windows */
+static char normbordercolor[]       = "#15181E";
+
+/* Bar foreground color */	
+static char selbgcolor[]            = "#7FC1E9";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -122,13 +126,14 @@ static const char *layoutmenu_cmd = "~/.config/scripts/layoutmenu";
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
+	/*
 		{ "dwm.color0",		STRING,	&normbordercolor },
 		{ "dwm.color8",		STRING,	&selbordercolor },
 		{ "dwm.color0",		STRING,	&normbgcolor },
 		{ "dwm.color4",		STRING,	&normfgcolor },
 		{ "dwm.color0",		STRING,	&selfgcolor },
-		/* comment line below */
 		{ "dwm.color4",		STRING,	&selbgcolor },
+	*/
 		{ "borderpx",		INTEGER, &borderpx },
 		{ "snap",		INTEGER, &snap },
 		{ "showbar",		INTEGER, &showbar },
@@ -254,6 +259,9 @@ static Key keys[] = {
 	/* Show/hide bar */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 
+	/* Lock the screen */
+	{ SUPERKEY,			XK_l,		spawn,		SHCMD("st -e ~/.config/scripts/screenlock") },
+
 	/* Close DWM */
 	{ MODKEY|ShiftMask,		XK_c,		quit,		{0} },
 
@@ -317,6 +325,7 @@ static Key keys[] = {
 	/* >>>SCRIPTS<<< */
 	/* These keybindings will be used to launch scripts */
 	/* [SUPER-BOUND] */
+	{ SUPERKEY,			XK_c,		spawn,		SHCMD("st -e ~/.config/scripts/classroom") },
 	{ SUPERKEY,			XK_d,		spawn,		SHCMD("st -e ~/.config/scripts/displayselect") },
 	{ SUPERKEY,			XK_i,		spawn,		SHCMD("st -e ~/.config/scripts/inactivity") },
 	{ SUPERKEY,			XK_m,		spawn,		SHCMD("st -e ~/.config/scripts/dmenumount") },
@@ -325,112 +334,19 @@ static Key keys[] = {
 	{ SUPERKEY,			XK_t,		spawn,		SHCMD("st -e ~/.config/scripts/toggletouchpad") },
 	{ SUPERKEY,			XK_u,		spawn,		SHCMD("st -e ~/.config/scripts/dmenuumount") },
 	{ SUPERKEY,			XK_w,		spawn,	    	SHCMD("st -e ~/.config/scripts/randomwall-now") },
+	{ SUPERKEY|ShiftMask,		XK_b,		spawn,		SHCMD("st -e ~/.config/scripts/safe-switch") },
 	{ SUPERKEY|ShiftMask,		XK_e,		spawn,		SHCMD("st -e ~/.config/scripts/dmenuunicode") },
-	{ SUPERKEY|ShiftMask,		XK_l,		spawn,		SHCMD("st -e ~/.config/scripts/screenlock") },
 	{ SUPERKEY|ShiftMask,		XK_r,		spawn,		SHCMD("st -e ~/.config/scripts/reminder") },
 	{ SUPERKEY|ShiftMask,		XK_u,		spawn,		SHCMD("st -e ~/.config/scripts/disk-usage") },
 
 	/* [FNKEY-BOUND] */
 	{ 0, XF86XK_Display,				spawn,		SHCMD("st -e ~/.config/scripts/webcam") },
+	{ 0, XF86XK_Explorer,				spawn,		SHCMD("st -e ~/.config/scripts/orario") },
 	{ 0, XF86XK_LaunchA,				spawn,		SHCMD("st -e ~/.config/scripts/launcher") },
 	{ 0, XF86XK_MonBrightnessDown,			spawn,		SHCMD("xbacklight -dec 10; kill -45 $(pidof dwmblocks)") },
 	{ 0, XF86XK_MonBrightnessUp,			spawn,		SHCMD("xbacklight -inc 10; kill -45 $(pidof dwmblocks)") },
 	{ 0, XF86XK_Search,				spawn,		SHCMD("st -e ~/.config/scripts/downloader") },
 
-	/* <-> Unbound keybindings (DWM stuff) <-> */
-
-	/* Open helper document for DWM */
-	/*{ MODKEY,			XK_F1,		spawn,		SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -") },*/
-	/* { MODKEY|ShiftMask,		XK_0,		tag,		{.ui = ~0 } }, */
-	/* { MODKEY|ShiftMask,		XK_f,		setlayout,	{.v = &layouts[8]} }, */
-	/* { MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } }, */
-	/* { MODKEY|ShiftMask,		XK_semicolon,	shifttag,	{ .i = 1 } }, */
-	/* { MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} }, */
-	/* { MODKEY|Mod4Mask,		XK_h,		incrgaps,	{.i = +1 } }, */
-	/* { MODKEY|Mod4Mask,		XK_l,		incrgaps,	{.i = -1 } }, */
-	/* { MODKEY|Mod4Mask|ShiftMask,	XK_h,		incrogaps,	{.i = +1 } }, */
-	/* { MODKEY|Mod4Mask|ShiftMask,	XK_l,		incrogaps,	{.i = -1 } }, */
-	/* { MODKEY|Mod4Mask|ControlMask, XK_h,		incrigaps,	{.i = +1 } }, */
-	/* { MODKEY|Mod4Mask|ControlMask, XK_l,		incrigaps,	{.i = -1 } }, */
-	/* { MODKEY|Mod4Mask|ShiftMask,	XK_0,		defaultgaps,	{0} }, */
-	/* { MODKEY,			XK_y,		incrihgaps,	{.i = +1 } }, */
-	/* { MODKEY,			XK_o,		incrihgaps,	{.i = -1 } }, */
-	/* { MODKEY|ControlMask,	XK_y,		incrivgaps,	{.i = +1 } }, */
-	/* { MODKEY|ControlMask,	XK_o,		incrivgaps,	{.i = -1 } }, */
-	/* { MODKEY|Mod4Mask,		XK_y,		incrohgaps,	{.i = +1 } }, */
-	/* { MODKEY|Mod4Mask,		XK_o,		incrohgaps,	{.i = -1 } }, */
-	/* { MODKEY|ShiftMask,		XK_y,		incrovgaps,	{.i = +1 } }, */
-	/* { MODKEY|ShiftMask,		XK_o,		incrovgaps,	{.i = -1 } }, */
-	/* { MODKEY,			XK_F5,		xrdb,		{.v = NULL } }, */
-	/* { MODKEY,			XK_F12,		xrdb,		{.v = NULL } }, */
-	/* { MODKEY|ShiftMask,		XK_grave,	togglescratch,	SHCMD("") }, */
-
-	/* <-> Unbound keybindings (programs) <-> */
-	/* { MODKEY,			XK_minus,	spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") }, */
-	/* { MODKEY|ShiftMask,		XK_minus,	spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") }, */
-	/* { MODKEY,			XK_equal,	spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") }, */
-	/* { MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") }, */
-	/* { MODKEY,			XK_BackSpace,	spawn,		SHCMD("sysact") }, */
-	/* { MODKEY|ShiftMask,		XK_BackSpace,	spawn,		SHCMD("sysact") }, */
-	/* { MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("sysact") }, */
-	/* { MODKEY,			XK_p,		spawn,		SHCMD("mpc toggle") }, */
-	/* { MODKEY|ShiftMask,		XK_p,		spawn,		SHCMD("mpc pause ; pauseallmpv") }, */
-	/* { MODKEY,			XK_bracketleft,	spawn,		SHCMD("mpc seek -10") }, */
-	/* { MODKEY|ShiftMask,		XK_bracketleft,	spawn,		SHCMD("mpc seek -60") }, */
-	/* { MODKEY,			XK_bracketright,spawn,		SHCMD("mpc seek +10") }, */
-	/* { MODKEY|ShiftMask,		XK_bracketright,spawn,		SHCMD("mpc seek +60") }, */
-	/* { MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e sudo nmtui") }, */
-	/* { MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
-	/* { MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },*/
-	/* { MODKEY,			XK_r,		spawn,		SHCMD(TERMINAL " -e lf") }, */
-	/* { MODKEY|ShiftMask,		XK_r,		spawn,		SHCMD(TERMINAL " -e htop") }, */
-	/* { MODKEY,			XK_n,		spawn,		SHCMD(TERMINAL " -e nvim -c VimwikiIndex") }, */
-	/* { MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") }, */
-	/* { MODKEY,			XK_m,		spawn,		SHCMD(TERMINAL " -e ncmpcpp") }, */
-	/* { MODKEY|ShiftMask,		XK_m,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") }, */
-	/* { MODKEY,			XK_comma,	spawn,		SHCMD("mpc prev") }, */
-	/* { MODKEY|ShiftMask,		XK_comma,	spawn,		SHCMD("mpc seek 0%") }, */
-	/* { MODKEY,			XK_period,	spawn,		SHCMD("mpc next") },*/
-	/* { MODKEY|ShiftMask,		XK_period,	spawn,		SHCMD("mpc repeat") }, */
-	/* { MODKEY,			XK_Insert,	spawn,		SHCMD("xdotool type $(cat ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)") }, */
-	/* { MODKEY,			XK_F2,		spawn,		SHCMD("tutorialvids") }, */
-	/* { MODKEY,			XK_F4,		spawn,		SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") }, */
-	/* { MODKEY,			XK_F6,		spawn,		SHCMD("torwrap") }, */
-	/* { MODKEY,			XK_F7,		spawn,		SHCMD("td-toggle") }, */
-	/* { MODKEY,			XK_F8,		spawn,		SHCMD("mw -Y") }, */
-	/* { ShiftMask,			XK_Print,	spawn,		SHCMD("maimpick") }, */
-	/* { MODKEY|ShiftMask,		XK_Print,	spawn,		SHCMD("dmenurecord kill") }, */
-	/* { MODKEY,			XK_Delete,	spawn,		SHCMD("dmenurecord kill") }, */
-	/* { 0, XF86XK_AudioPrev,			spawn,		SHCMD("mpc prev") }, */
-	/* { 0, XF86XK_AudioNext,			spawn,		SHCMD("mpc next") }, */
-	/* { 0, XF86XK_AudioPause,			spawn,		SHCMD("mpc pause") }, */
-	/* { 0, XF86XK_AudioPlay,			spawn,		SHCMD("mpc play") }, */
-	/* { 0, XF86XK_AudioStop,			spawn,		SHCMD("mpc stop") }, */
-	/* { 0, XF86XK_AudioRewind,			spawn,		SHCMD("mpc seek -10") }, */
-	/* { 0, XF86XK_AudioForward,			spawn,		SHCMD("mpc seek +10") }, */
-	/* { 0, XF86XK_AudioMedia,			spawn,		SHCMD(TERMINAL " -e ncmpcpp") }, */
-	/* { 0, XF86XK_PowerOff,			spawn,		SHCMD("sysact") }, */
-	/* { 0, XF86XK_Calculator,			spawn,		SHCMD(TERMINAL " -e bc -l") }, */
-	/* { 0, XF86XK_Sleep,				spawn,		SHCMD("sudo -A zzz") }, */
-	/* { 0, XF86XK_WWW,				spawn,		SHCMD("$BROWSER") }, */
-	/* { 0, XF86XK_DOS,				spawn,		SHCMD(TERMINAL) }, */
-	/* { 0, XF86XK_ScreenSaver,			spawn,		SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") }, */
-	/* { 0, XF86XK_TaskPane,			spawn,		SHCMD(TERMINAL " -e htop") }, */
-	/* { 0, XF86XK_Mail,				spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") }, */
-	/* { 0, XF86XK_MyComputer,			spawn,		SHCMD(TERMINAL " -e lf /") }, */
-	/* { 0, XF86XK_Launch1,				spawn,		SHCMD("xset dpms force off") }, */
-	/* { 0, XF86XK_Battery,				spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
-	/* { MODKEY,			XK_c,		spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("") }, */
-	/* { MODKEY,			XK_d,		spawn,		SHCMD("") } }, */
-	/* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_backslash,	spawn,		SHCMD("") }, */
-	/* { MODKEY|ShiftMask,		XK_Escape,	spawn,		SHCMD("") }, */
 };
 
 /* button definitions */
@@ -438,7 +354,7 @@ static Key keys[] = {
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
-	{ ClkLtSymbol,		0,		Button3,		layoutmenu,	   {0} },
+	{ ClkLtSymbol,		0,		Button3,	layoutmenu,     {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
