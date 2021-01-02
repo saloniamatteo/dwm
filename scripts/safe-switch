@@ -2,6 +2,8 @@
 # This script will reduce brightness to 1,
 # will disable the touchpad,
 # will disable networking,
+# will turn off audio
+# will disable microphone
 # and will lock the screen.
 
 # Check if doas is installed
@@ -19,6 +21,10 @@ for card in $netcards
 do
 	doas ifconfig $card down
 done
+
+# Turn off audio and disable microphone
+amixer -qD pulse sset Master mute; kill -44 $(pidof dwmblocks)
+amixer -qD pulse sset Capture nocap; kill -44 $(pidof dwmblocks)
 
 # Reduce brightness to 1
 xbacklight -set 1
