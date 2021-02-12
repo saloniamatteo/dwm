@@ -237,6 +237,7 @@ static void grabkeys(void);
 static void incnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
+static void layoutmenu(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
 static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
@@ -413,7 +414,8 @@ applyrules(Client *c)
 		XFree(ch.res_class);
 	if (ch.res_name)
 		XFree(ch.res_name);
-	c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : (c->mon->tagset[c->mon->seltags] & ~SPTAGMASK);
+	/*c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : (c->mon->tagset[c->mon->seltags] & ~SPTAGMASK);*/
+	c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : c->mon->tagset[c->mon->seltags];
 }
 
 int
@@ -793,6 +795,7 @@ configurenotify(XEvent *e)
 				for (c = m->clients; c; c = c->next)
 					if (c->isfullscreen)
 						resizeclient(c, m->mx, m->my, m->mw, m->mh);
+				XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh);
 				resizebarwin(m);
 			}
 			focus(NULL);
@@ -978,6 +981,12 @@ drawbar(Monitor *m)
 		w = TEXTW(tags[i]);
 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
+		
+		if (occ & 1 << i)
+			drw_rect(drw, x + boxs, boxs, boxw, boxw,
+				m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
+				urg & 1 << i);
+
 		x += w;
 	}
 	w = blw = TEXTW(m->ltsymbol);
@@ -995,6 +1004,7 @@ drawbar(Monitor *m)
 			drw_rect(drw, x, 0, w, bh, 1, 1);
 		}
 	}
+
 	drw_map(drw, m->barwin, 0, 0, m->ww - stw, bh);
 }
 
@@ -1088,6 +1098,7 @@ focusmon(const Arg *arg)
 	focus(NULL);
 }
 
+/*
 void
 focusstack(const Arg *arg)
 {
@@ -1102,7 +1113,35 @@ focusstack(const Arg *arg)
 	focus(c ? c : p);
 	restack(selmon);
 }
+*/
 
+void
+focusstack(const Arg *arg)
+{
+	Client *c = NULL, *i;
+
+	if (!selmon->sel)
+		return;
+	if (arg->i > 0) {
+		for (c = selmon->sel->next; c && !ISVISIBLE(c); c = c->next);
+		if (!c)
+			for (c = selmon->clients; c && !ISVISIBLE(c); c = c->next);
+	} else {
+		for (i = selmon->clients; i != selmon->sel; i = i->next)
+			if (ISVISIBLE(i))
+				c = i;
+		if (!c)
+			for (; i; i = i->next)
+				if (ISVISIBLE(i))
+					c = i;
+	}
+	if (c) {
+		focus(c);
+		restack(selmon);
+	}
+}
+
+/*
 Atom
 getatomprop(Client *c, Atom prop)
 {
@@ -1110,8 +1149,11 @@ getatomprop(Client *c, Atom prop)
 	unsigned long dl;
 	unsigned char *p = NULL;
 	Atom da, atom = None;
+	*/
+
 	/* FIXME getatomprop should return the number of items and a pointer to
 	 * the stored data instead of this workaround */
+/*
 	Atom req = XA_ATOM;
 	if (prop == xatom[XembedInfo])
 		req = xatom[XembedInfo];
@@ -1121,6 +1163,23 @@ getatomprop(Client *c, Atom prop)
 		atom = *(Atom *)p;
 		if (da == xatom[XembedInfo] && dl == 2)
 			atom = ((Atom *)p)[1];
+		XFree(p);
+	}
+	return atom;
+}
+*/
+
+Atom
+getatomprop(Client *c, Atom prop)
+{
+	int di;
+	unsigned long dl;
+	unsigned char *p = NULL;
+	Atom da, atom = None;
+
+	if (XGetWindowProperty(dpy, c->win, prop, 0L, sizeof atom, False, XA_ATOM,
+		&da, &di, &dl, &dl, &p) == Success && p) {
+		atom = *(Atom *)p;
 		XFree(p);
 	}
 	return atom;
@@ -1291,6 +1350,24 @@ killclient(const Arg *arg)
 		XSetErrorHandler(xerror);
 		XUngrabServer(dpy);
 	}
+}
+
+void
+layoutmenu(const Arg *arg) {
+	FILE *p;
+	char c[3], *s;
+	int i;
+
+	if (!(p = popen(layoutmenu_cmd, "r")))
+		 return;
+	s = fgets(c, sizeof(c), p);
+	pclose(p);
+
+	if (!s || *s == '\0' || c == '\0')
+		 return;
+
+	i = atoi(c);
+	setlayout(&((Arg) { .v = &layouts[i] }));
 }
 
 void
@@ -2035,6 +2112,7 @@ showhide(Client *c)
 			c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
 			c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
 		}
+	
 		/* show clients top down */
 		XMoveWindow(dpy, c->win, c->x, c->y);
 		if ((!c->mon->lt[c->mon->sellt]->arrange || c->isfloating) && !c->isfullscreen)

@@ -119,6 +119,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
+static const char *layoutmenu_cmd = "~/.config/scripts/layoutmenu";
 
 /*
  * Xresources preferences to load at startup
@@ -277,11 +278,11 @@ static Key keys[] = {
 
 	/* [VIDEO] */
 	/* Take a screenshot */
-	{ 0,				XK_Print,	spawn,		SHCMD("cd ~/Pictures && scrot 'Screenshot-%d%b%4Y-%a-%H-%M-%S.png'") },
+	{ 0,				XK_Print,	spawn,		SHCMD("cd ~/Pictures && scrot -q 100 -p 'Screenshot-%d%b%4Y-%a-%H-%M-%S.png'") },
+	/* Select area to screenshot */
+	{ MODKEY,			XK_Print,	spawn,		SHCMD("cd ~/Pictures && scrot -q 100 -sp 'Screenshot-%d%b%4Y-%a-%H-%M-%S.png'") },
 	/* Show webcam */
 	{ MODKEY,			XK_F7,		spawn,		SHCMD("mpv av://v4l2:/dev/video0 --title=webcam /dev/video0 || notify-send -u critical 'Webcam' 'Could not open webcam!'") },
-	/* Launch obs */
-	{ MODKEY,			XK_Print,	spawn,		SHCMD("obs") },
 
 	/* [LAUNCHER] */
 	/* Launch dmenu */
@@ -294,8 +295,12 @@ static Key keys[] = {
 	/* [OTHERS] */
 	/* Open file manager */
 	{ MODKEY|ShiftMask,		XK_f,		spawn,		SHCMD("nemo") },
+	/* Open Surf */
+	{ MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("tabbed -c surf -BNPTge & disown") },
 	/* Open Firefox */
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("firefox") },
+	/* Open LibreWolf */
+	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("librewolf") },
 
 	/* [SPECIAL KEYS] */
 	/* [AUDIO] */
@@ -324,6 +329,7 @@ static Key keys[] = {
 	/* These keybindings will be used to launch scripts */
 	/* [SUPER-BOUND] */
 	{ SUPERKEY,			XK_d,		spawn,		SHCMD("st -e ~/.config/scripts/displayselect") },
+	{ SUPERKEY,			XK_f,		spawn,		SHCMD("st -e ~/.config/scripts/set-fan") },
 	{ SUPERKEY,			XK_i,		spawn,		SHCMD("st -e ~/.config/scripts/inactivity") },
 	{ SUPERKEY,			XK_m,		spawn,		SHCMD("st -e ~/.config/scripts/dmenumount") },
 	{ SUPERKEY,			XK_r,		spawn,		SHCMD("st -e ~/.config/scripts/screenrecord") },
@@ -350,6 +356,7 @@ static Key keys[] = {
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
+	{ ClkLtSymbol,		0,		Button3,	layoutmenu,     {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },

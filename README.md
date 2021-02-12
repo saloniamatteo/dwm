@@ -25,6 +25,7 @@ Here's how the systray looks (applets are `copyq` and `nm-applet`)
 - vanitygaps: Gaps allowed across all layouts.
 - swallow patch: if a program run from a terminal would make it inoperable, it temporarily takes its place to save space.
 - dwm can now be closed and restarted (`Alt+Shift+C` to close it, `Alt+Shift+R` to restart it)
+- LayoutMenu patch: you can now right click the layout indicator to get a list of available layouts.
 
 ## Please install `libxft-bgra`!
 
