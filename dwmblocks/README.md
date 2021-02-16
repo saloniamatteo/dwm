@@ -9,7 +9,7 @@ added and removed by editing the config.h file.
 
 # Salonia Matteo's build (forked from Luke Smith)
 
-dwmblocks reads scripts from your `$PATH`. I have included the scripts I use ([you can find them here](https://github.com/GoDzM4TT3O/dwm/tree/master/dwmblocks/bin)), 
+dwmblocks reads scripts from your `$PATH`. I have included the scripts I use ([you can find them here](https://github.com/saloniamatteo/dwm/tree/master/dwmblocks/bin)), 
 but you can also use [Luke Smith's scripts](https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar).
 So if you want dwmblocks to work, put those scripts in your `$PATH`. 
 
