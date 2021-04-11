@@ -34,6 +34,8 @@ All bound to keys <kbd>Alt</kbd>+(<kbd>Shift</kbd>+)
 - cfact & dragcfact patches: resize slave windows' height with <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>H</kbd>, <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>L</kbd>, and reset it with <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>O</kbd>;
 Alternatively, resize them by sliding your cursor while pressing <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>RightMouseButton</kbd>
 
+(Video previews of RioResize, PlaceMouse, and ResizePoint are available [here](#Previews))
+
 ## Please install `libxft-bgra`!
 
 This build of dwm does not block color emoji in the status/info bar, so you must install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) from the AUR, which fixes a libxft color emoji rendering problem, otherwise dwm will crash upon trying to render one. Hopefully this fix will be in all libxft soon enough.
@@ -80,6 +82,16 @@ This repository includes my fork of Luke Smith's build of dwmblocks.
 	![Date and Time](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/blocks-datetime.png)
 
 ## Previews
+
+### Video Previews (Patches)
+RioResize:
+![RioResize](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/rioresize.mkv)
+
+PlaceMouse:
+![PlaceMouse](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/placemouse.mkv)
+
+ResizePoint:
+![ResizePoint](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/resizepoint.mkv)
 
 ### Misc
 
