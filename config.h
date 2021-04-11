@@ -19,6 +19,12 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
+static const char slopspawnstyle[]  = "-t 0 -c 0.92,0.85,0.69,0.3 -o"; /* do NOT define -f (format) here */
+static const char slopresizestyle[] = "-t 0 -c 0.92,0.85,0.69,0.3"; /* do NOT define -f (format) here */
+static const int riodraw_borders    = 0;        /* 0 or 1, indicates whether the area drawn using slop includes the window borders */
+static const int riodraw_matchpid   = 1;        /* 0 or 1, indicates whether to match the PID of the client that was spawned with riospawn */
+static const int riodraw_spawnasync = 0;        /* 0 means that the application is only spawned after a successful selection while
+                                                 * 1 means that the application is being initialised in the background while the selection is made */
 static char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
 
 /* Bar background color */
@@ -232,6 +238,12 @@ static Key keys[] = {
 	{ MODKEY,			XK_h,		setmfact,	{.f = -0.05} },
 	/* Resize window right (make it bigger) */
 	{ MODKEY,			XK_l,		setmfact,      	{.f = +0.05} },
+
+	/* Resize window like Plan9's rio (Rio-Resize patch) */
+	{ MODKEY,                       XK_r,		rioresize,      {0} },
+
+	/* Spawn a new floating terminal, like Plan9's rio (Rio-Resize patch) */
+	{ MODKEY|ControlMask,           XK_Return,	riospawn,       {.v = termcmd } },
 
 	/* Promote selected window to master */
 	{ MODKEY,			XK_space,	zoom,		{0} },
