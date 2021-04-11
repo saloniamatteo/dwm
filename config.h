@@ -239,6 +239,13 @@ static Key keys[] = {
 	/* Resize window right (make it bigger) */
 	{ MODKEY,			XK_l,		setmfact,      	{.f = +0.05} },
 
+	/* Resize window up (make it taller) */
+	{ MODKEY|ControlMask,             XK_h,		setcfact,       {.f = +0.25} },
+	/* Resize window down (make it shorter) */
+	{ MODKEY|ControlMask,             XK_l,		setcfact,       {.f = -0.25} },
+	/* Reset window height */
+	{ MODKEY|ControlMask,             XK_o,		setcfact,       {.f =  0.00} },
+
 	/* Resize window like Plan9's rio (Rio-Resize patch) */
 	{ MODKEY,                       XK_r,		rioresize,      {0} },
 
@@ -391,6 +398,7 @@ static Button buttons[] = {
 	{ ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 1} },
 	{ ClkClientWin,         MODKEY,         Button2,        defaultgaps,	{0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY|ShiftMask, Button3,      dragcfact,      {0} },
 	{ ClkClientWin,		MODKEY,		Button4,	incrgaps,	{.i = +1} },
 	{ ClkClientWin,		MODKEY,		Button5,	incrgaps,	{.i = -1} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },

@@ -29,6 +29,8 @@ Here's how the systray looks (applets are `copyq` and `nm-applet`)
 - RioResize patch: you can resize a window with `Alt+R`, like Plan9's rio; you can also create a new floating terminal with `Alt+Ctrl+Enter`.
 - PlaceMouse patch: replace a window's position by dragging it over another window.
 - ResizePoint patch: intuitively resize a window.
+- cfact & dragcfact patches: resize slave windows' height with `Alt+Ctrl+H`, `Alt+Ctrl+L`, and reset it with `Alt+Ctrl+O`;
+Alternatively, resize them by sliding your cursor while pressing `Alt+Ctrl+RightMouseButton`
 
 ## Please install `libxft-bgra`!
 
