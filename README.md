@@ -28,10 +28,10 @@ All bound to keys <kbd>Alt</kbd>+(<kbd>Shift</kbd>+)
 - swallow patch: if a program run from a terminal would make it inoperable, it temporarily takes its place to save space.
 - dwm can now be closed and restarted (<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> to close it, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> to restart it)
 - LayoutMenu patch: you can now right click the layout indicator to get a list of available layouts.
-- RioResize patch: you can resize a window with <kbd>Alt</kbd>+<kbd>R</kbd>, like Plan9's rio; you can also create a new floating terminal with <kbd>Alt</kbd>+Ctrl+<kbd>Enter</kbd>.
+- RioResize patch: you can resize a window with <kbd>Alt</kbd>+<kbd>R</kbd>, like Plan9's rio; you can also create a new floating terminal with <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 - PlaceMouse patch: replace a window's position by dragging it over another window.
 - ResizePoint patch: intuitively resize a window.
-- cfact & dragcfact patches: resize slave windows' height with <kbd>Alt</kbd>+Ctrl+<kbd>H</kbd>, <kbd>Alt</kbd>+Ctrl+<kbd>L</kbd>, and reset it with <kbd>Alt</kbd>+Ctrl+<kbd>O</kbd>;
+- cfact & dragcfact patches: resize slave windows' height with <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>H</kbd>, <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>L</kbd>, and reset it with <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>O</kbd>;
 Alternatively, resize them by sliding your cursor while pressing <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>RightMouseButton</kbd>
 
 ## Please install `libxft-bgra`!
