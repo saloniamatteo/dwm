@@ -85,13 +85,13 @@ This repository includes my fork of Luke Smith's build of dwmblocks.
 
 ### Video Previews (Patches)
 RioResize:
-![RioResize](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/rioresize.mkv)
+![RioResize](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/rioresize.mp4)
 
 PlaceMouse:
-![PlaceMouse](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/placemouse.mkv)
+![PlaceMouse](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/placemouse.mp4)
 
 ResizePoint:
-![ResizePoint](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/resizepoint.mkv)
+![ResizePoint](https://raw.githubusercontent.com/saloniamatteo/dwm/master/Previews/resizepoint.mp4)
 
 ### Misc
 
