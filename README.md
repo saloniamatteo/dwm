@@ -30,7 +30,7 @@ Here's how the systray looks (applets are `copyq` and `nm-applet`)
 - PlaceMouse patch: replace a window's position by dragging it over another window.
 - ResizePoint patch: intuitively resize a window.
 - cfact & dragcfact patches: resize slave windows' height with `Alt+Ctrl+H`, `Alt+Ctrl+L`, and reset it with `Alt+Ctrl+O`;
-Alternatively, resize them by sliding your cursor while pressing `Alt+Ctrl+RightMouseButton`
+Alternatively, resize them by sliding your cursor while pressing `Alt+Shift+RightMouseButton`
 
 ## Please install `libxft-bgra`!
 
