@@ -16,21 +16,23 @@ Here's how the systray looks (applets are `copyq` and `nm-applet`)
 - Added a systray (the new patch is available in the [patches folder](https://github.com/saloniamatteo/dwm/tree/master/patches))
 - Clickable statusbar with Luke Smith's build of [dwmblocks](https://github.com/lukesmithxyz/dwmblocks).
 - Reads xresources colors/variables (i.e. works with `pywal`, etc.).
-- scratchpad: Accessible with `Alt+Shift+Enter` (will open `st` in the scratchpad) or `Alt+0` (will access all programs in the scratchpad).
-- New layouts: bstack, fibonacci, deck, centered master and more. All bound to keys `Alt+(Shift+)T/Y/U/I`.
-- True fullscreen (`Alt+F`) and prevents focus shifting.
-- Windows can be made sticky (`Alt+S`).
-- stacker: Move windows up the stack manually (`Alt+Shift+K/J`).
-- shiftview: Cycle through tags (`Alt+G`).
+- scratchpad: Accessible with <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (will open `st` in the scratchpad) or <kbd>Alt</kbd>+<kbd>0</kbd> (will access all programs in the scratchpad).
+- New layouts: bstack, fibonacci, deck, centered master and more.
+All bound to keys <kbd>Alt</kbd>+(<kbd>Shift</kbd>+)
+<kbd>T</kbd>/<kbd>Y</kbd>/<kbd>U</kbd>/<kbd>I</kbd>.
+- True fullscreen (<kbd>Alt</kbd>+<kbd>F</kbd>) and prevents focus shifting.
+- Windows can be made sticky (<kbd>Alt</kbd>+<kbd>S</kbd>).
+- stacker: Move windows up the stack manually (<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd>/<kbd>J</kbd>).
+- shiftview: Cycle through tags (<kbd>Alt</kbd>+<kbd>G</kbd>).
 - vanitygaps: Gaps allowed across all layouts.
 - swallow patch: if a program run from a terminal would make it inoperable, it temporarily takes its place to save space.
-- dwm can now be closed and restarted (`Alt+Shift+C` to close it, `Alt+Shift+R` to restart it)
+- dwm can now be closed and restarted (<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> to close it, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> to restart it)
 - LayoutMenu patch: you can now right click the layout indicator to get a list of available layouts.
-- RioResize patch: you can resize a window with `Alt+R`, like Plan9's rio; you can also create a new floating terminal with `Alt+Ctrl+Enter`.
+- RioResize patch: you can resize a window with <kbd>Alt</kbd>+<kbd>R</kbd>, like Plan9's rio; you can also create a new floating terminal with <kbd>Alt</kbd>+Ctrl+<kbd>Enter</kbd>.
 - PlaceMouse patch: replace a window's position by dragging it over another window.
 - ResizePoint patch: intuitively resize a window.
-- cfact & dragcfact patches: resize slave windows' height with `Alt+Ctrl+H`, `Alt+Ctrl+L`, and reset it with `Alt+Ctrl+O`;
-Alternatively, resize them by sliding your cursor while pressing `Alt+Shift+RightMouseButton`
+- cfact & dragcfact patches: resize slave windows' height with <kbd>Alt</kbd>+Ctrl+<kbd>H</kbd>, <kbd>Alt</kbd>+Ctrl+<kbd>L</kbd>, and reset it with <kbd>Alt</kbd>+Ctrl+<kbd>O</kbd>;
+Alternatively, resize them by sliding your cursor while pressing <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>RightMouseButton</kbd>
 
 ## Please install `libxft-bgra`!
 
