@@ -27,7 +27,8 @@ Here's how the systray looks (applets are `copyq` and `nm-applet`)
 - dwm can now be closed and restarted (`Alt+Shift+C` to close it, `Alt+Shift+R` to restart it)
 - LayoutMenu patch: you can now right click the layout indicator to get a list of available layouts.
 - RioResize patch: you can resize a window with `Alt+R`, like Plan9's rio; you can also create a new floating terminal with `Alt+Ctrl+Enter`.
-- PlaceMouse patch: replace a window's position by dragging it over another window
+- PlaceMouse patch: replace a window's position by dragging it over another window.
+- ResizePoint patch: intuitively resize a window.
 
 ## Please install `libxft-bgra`!
 
