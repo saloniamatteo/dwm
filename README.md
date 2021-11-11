@@ -37,8 +37,23 @@ Alternatively, resize them by sliding your cursor while pressing <kbd>Alt</kbd>+
 (Video previews of RioResize, PlaceMouse, and ResizePoint are available [here](#Previews))
 
 ## Please install `libxft-bgra`!
+This build of dwm does not block color emoji in the status/info bar, so you must install (or patch) libxft-bgra,
+which fixes a libXft color emoji rendering problem, otherwise dwm will crash upon trying to render one.
+Hopefully this fix will be in all libXft soon enough.
 
-This build of dwm does not block color emoji in the status/info bar, so you must install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) from the AUR, which fixes a libxft color emoji rendering problem, otherwise dwm will crash upon trying to render one. Hopefully this fix will be in all libxft soon enough.
+### Gentoo
+You have to patch libXft with the following steps:
+
+1. Create the `/etc/portage/patches/x11-misc/libXft` directory:
+`mkdir -p /etc/portage/patches/x11-misc/libXft`
+2. Add the patch to the new directory:
+`wget https://gitlab.freedesktop.org/xorg/lib/libxft/merge_requests/1.patch -O /etc/portage/patches/x11-misc/libXft/libxft-bgra.patch`
+3. Re-emerge `x11-misc/libXft`. Portage will automatically apply the patch:
+`emerge x11-misc/libXft`
+4. You should now see color emojis, if you installed a Font that supports color emojis, like "JoyPixels" or "Noto Color Emoji".
+
+### Arch Linux
+You can get libxft-bgra [here](https://aur.archlinux.org/packages/libxft-bgra/)
 
 ## dwmblocks
 

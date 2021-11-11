@@ -25,7 +25,11 @@ static const int riodraw_borders    = 0;        /* 0 or 1, indicates whether the
 static const int riodraw_matchpid   = 1;        /* 0 or 1, indicates whether to match the PID of the client that was spawned with riospawn */
 static const int riodraw_spawnasync = 0;        /* 0 means that the application is only spawned after a successful selection while
                                                  * 1 means that the application is being initialised in the background while the selection is made */
-static char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+//static char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static char *fonts[] = {
+	"Iosevka Term Semibold Extended:size=10:antialias=true:autohint=true",
+	"JoyPixels:pixelsize=10:antialias=true:autohint=true" 
+};
 
 /* Bar background color */
 static char normbgcolor[]           = "#15181E";
