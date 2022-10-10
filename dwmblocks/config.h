@@ -9,7 +9,7 @@
  */
 
 static const Block blocks[] = {
-	/*Icon*/	/*Command*/				/*Update Interval*/	/*Update Signal*/
+	/*Icon*/	/*Command*/	/*Update Interval*/	/*Update Signal*/
 	{"",		"capslock",	1,			2},
 	{"",		"brightness",	0,			11},
 	{"",		"memory",	10,			14},

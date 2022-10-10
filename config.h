@@ -16,7 +16,7 @@ static unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
 static int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+static int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static const char slopspawnstyle[]  = "-t 0 -c 0.92,0.85,0.69,0.3 -o"; /* do NOT define -f (format) here */
@@ -25,11 +25,13 @@ static const int riodraw_borders    = 0;        /* 0 or 1, indicates whether the
 static const int riodraw_matchpid   = 1;        /* 0 or 1, indicates whether to match the PID of the client that was spawned with riospawn */
 static const int riodraw_spawnasync = 0;        /* 0 means that the application is only spawned after a successful selection while
                                                  * 1 means that the application is being initialised in the background while the selection is made */
-//static char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static char *fonts[]          = { "monospace:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+/*
 static char *fonts[] = {
-	"Iosevka Term Semibold Extended:size=10:antialias=true:autohint=true",
+	"FuraCode NF Regular:size=11:antialias=true:autohint=true",
 	"JoyPixels:pixelsize=10:antialias=true:autohint=true" 
 };
+*/
 
 /* Bar background color */
 static char normbgcolor[]           = "#15181E";
@@ -311,7 +313,7 @@ static Key keys[] = {
 	/* Launch dmenu */
 	{ MODKEY|ShiftMask,		XK_d,		spawn,		SHCMD("dmenu_run") },
 	/* Launch rofi */
-	{ MODKEY,			XK_d,		spawn,		SHCMD("rofi -show-icons -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'") },
+	{ MODKEY,			XK_d,		spawn,		SHCMD("rofi -show-icons -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Iosevka 12'") },
 	/* Launch networkmanager-dmenu */
 	{ SUPERKEY,			XK_n,		spawn,		SHCMD("networkmanager_dmenu") },
 
@@ -320,10 +322,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_f,		spawn,		SHCMD("nemo") },
 	/* Open Surf */
 	{ MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("tabbed -c surf -BNPTge & disown") },
-	/* Open Firefox */
-	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("firefox") },
-	/* Open LibreWolf */
-	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("librewolf") },
+	/* Open Librewolf */
+	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("/usr/bin/librewolf") },
 
 	/* [SPECIAL KEYS] */
 	/* [AUDIO] */

@@ -16,9 +16,9 @@ esac
 micstat=$(amixer sget Capture | tail -n 1 | awk '{print $6}' | tr -d "[]")
 [[ $micstat = "" ]] && micstat="off"
 
-[ $(pamixer --get-mute) = true ] && echo "🔇 🎤$micstat" && exit
+[ $(pulsemixer --id source-1 --get-mute) = true ] && echo "🔇 🎤$micstat" && exit
 
-vol="$(pamixer --get-volume)"
+vol="$(pulsemixer --id sink-0 --get-volume | awk '{print $1}')"
 [[ "$vol" = 0 || "$vol" = "" ]] && echo "🔇 🎤$micstat" && exit
 
 if [ "$vol" -gt "70" ]; then
