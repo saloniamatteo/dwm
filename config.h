@@ -319,7 +319,7 @@ static Key keys[] = {
 
 	/* [OTHERS] */
 	/* Open file manager */
-	{ MODKEY|ShiftMask,		XK_f,		spawn,		SHCMD("nemo") },
+	{ MODKEY|ShiftMask,		XK_f,		spawn,		SHCMD("thunar") },
 	/* Open Surf */
 	{ MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("tabbed -c surf -BNPTge & disown") },
 	/* Open Librewolf */
