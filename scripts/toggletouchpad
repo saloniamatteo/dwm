@@ -1,9 +1,0 @@
-#!/bin/sh
-# enable/disable touchpad
-
-status=$(xinput --list-props 12 | grep -q 'Device Enabled.*1$' && printf "enabled" || printf "disabled")
-
-[[ "$status" = "enabled" ]] && xinput --disable 12 && notify-send "Toggle Touchpad" "Disabled Touchpad"
-[[ "$status" = "disabled" ]] && xinput --enable 12 && notify-send "Toggle Touchpad" "Enabled Touchpad"
-
-xdotool mousemove 1200 650

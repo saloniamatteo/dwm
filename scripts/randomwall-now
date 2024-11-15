@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# random wallpaper
-pape=$(ls ~/wallpapers | sort -R | tail -1)
-hsetroot -cover ~/wallpapers/$pape
