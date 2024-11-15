@@ -1,4 +1,2 @@
-dwm
-drw.o
-dwm.o
-util.o
+.gitignore
+*.o
