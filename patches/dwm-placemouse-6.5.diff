@@ -1,18 +1,18 @@
-From 59eee254a130fee41394a90121686a4ee337fc9c Mon Sep 17 00:00:00 2001
-From: bakkeby <bakkeby@gmail.com>
-Date: Thu, 21 Jan 2021 11:08:15 +0100
-Subject: [PATCH] Adding placemouse patch
+From 02c4e902d1e2812268584a2075423ed428f573cb Mon Sep 17 00:00:00 2001
+From: Bakkeby <bakkeby@gmail.com>
+Date: Fri, 28 Jun 2024 10:08:24 +0200
+Subject: [PATCH] placemouse patch
 
 ---
  config.def.h |  12 +++-
- dwm.c        | 165 +++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 176 insertions(+), 1 deletion(-)
+ dwm.c        | 166 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 177 insertions(+), 1 deletion(-)
 
 diff --git a/config.def.h b/config.def.h
-index 1c0b587..86f878a 100644
+index 9efa774..2133eea 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -104,7 +104,17 @@ static Button buttons[] = {
+@@ -105,7 +105,17 @@ static const Button buttons[] = {
  	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
  	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
  	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
@@ -32,7 +32,7 @@ index 1c0b587..86f878a 100644
  	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
  	{ ClkTagBar,            0,              Button1,        view,           {0} },
 diff --git a/dwm.c b/dwm.c
-index 4465af1..87bec7f 100644
+index f1d86b2..3f804a3 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -49,6 +49,8 @@
@@ -52,27 +52,27 @@ index 4465af1..87bec7f 100644
  	Client *next;
  	Client *snext;
  	Monitor *mon;
-@@ -183,10 +186,13 @@ static void maprequest(XEvent *e);
+@@ -184,10 +187,13 @@ static void maprequest(XEvent *e);
  static void monocle(Monitor *m);
  static void motionnotify(XEvent *e);
  static void movemouse(const Arg *arg);
 +static void moveorplace(const Arg *arg);
  static Client *nexttiled(Client *c);
 +static void placemouse(const Arg *arg);
- static void pop(Client *);
+ static void pop(Client *c);
  static void propertynotify(XEvent *e);
  static void quit(const Arg *arg);
 +static Client *recttoclient(int x, int y, int w, int h);
  static Monitor *recttomon(int x, int y, int w, int h);
  static void resize(Client *c, int x, int y, int w, int h, int interact);
  static void resizeclient(Client *c, int x, int y, int w, int h);
-@@ -1132,6 +1138,14 @@ motionnotify(XEvent *e)
+@@ -1142,6 +1148,14 @@ motionnotify(XEvent *e)
  	mon = m;
  }
  
 +void
 +moveorplace(const Arg *arg) {
-+	if ((!selmon->lt[selmon->sellt]->arrange || selmon->sel->isfloating))
++	if ((!selmon->lt[selmon->sellt]->arrange || (selmon->sel && selmon->sel->isfloating)))
 +		movemouse(arg);
 +	else
 +		placemouse(arg);
@@ -81,7 +81,7 @@ index 4465af1..87bec7f 100644
  void
  movemouse(const Arg *arg)
  {
-@@ -1199,6 +1213,138 @@ nexttiled(Client *c)
+@@ -1209,6 +1223,139 @@ nexttiled(Client *c)
  	return c;
  }
  
@@ -204,6 +204,7 @@ index 4465af1..87bec7f 100644
 +		detachstack(c);
 +		arrangemon(c->mon);
 +		c->mon = m;
++		c->tags = m->tagset[m->seltags];
 +		attach(c);
 +		attachstack(c);
 +		selmon = m;
@@ -220,7 +221,7 @@ index 4465af1..87bec7f 100644
  void
  pop(Client *c)
  {
-@@ -1251,6 +1397,21 @@ quit(const Arg *arg)
+@@ -1261,6 +1408,21 @@ quit(const Arg *arg)
  	running = 0;
  }
  
@@ -242,7 +243,7 @@ index 4465af1..87bec7f 100644
  Monitor *
  recttomon(int x, int y, int w, int h)
  {
-@@ -1281,6 +1442,10 @@ resizeclient(Client *c, int x, int y, int w, int h)
+@@ -1291,6 +1453,10 @@ resizeclient(Client *c, int x, int y, int w, int h)
  	c->oldy = c->y; c->y = wc.y = y;
  	c->oldw = c->w; c->w = wc.width = w;
  	c->oldh = c->h; c->h = wc.height = h;
@@ -254,5 +255,5 @@ index 4465af1..87bec7f 100644
  	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
  	configure(c);
 -- 
-2.30.0
+2.45.2
 
