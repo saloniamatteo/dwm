@@ -5,6 +5,12 @@ I applied several quality-of-life patches, as well as some fixes here and there.
 
 NOTE: to apply the `statuscmd` patch, I had to modify `dwm.c`, in particular the `drawbar()` function: since the patch does not account for the systray, I had to make space for it, otherwhise `dwmblocks` would draw under it.
 
+## Screenshots
+![1](Screenshots/1.png)
+![2](Screenshots/2.png)
+![3](Screenshots/3.png)
+
+## Getting started
 To get started, compile dwm:
 
 ```bash
