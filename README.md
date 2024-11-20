@@ -145,13 +145,14 @@ All the other keybindings can be found in `config.h`.
 All the other keybindings can be found in `config.h`.
 
 ### Tags
-- View all windows: <kbd>ALT</kbd><kbd>0</kbd>
+- Toggle scratchpad: <kbd>ALT</kbd><kbd>0</kbd>
 - Go to last tag: <kbd>ALT</kbd><kbd>TAB</kbd>.
 - Go to tag `x`: <kbd>ALT</kbd>`x` (`x` is a value between `1` and `9`)
 - Move selected window to tag `x`: <kbd>ALT</kbd><kbd>S</kbd><kbd>x</kbd>.
 
 ### Programs
 - Terminal (`/usr/local/bin/st`): <kbd>ALT</kbd><kbd>ENTER</kbd>
+- Terminal in scratchpad: <kbd>ALT</kbd><kbd>S</kbd><kbd>ENTER</kbd>
 - Rofi: <kbd>ALT</kbd><kbd>d</kbd>
 - Dmenu: <kbd>ALT</kbd><kbd>S</kbd><kbd>d</kbd>
 - File manager (`dolphin`): <kbd>ALT</kbd><kbd>S</kbd><kbd>f</kbd>
@@ -221,6 +222,8 @@ The following patches are applied:
   - dwm-netclientliststacking-6.5
   - dwm-placemouse-6.5
   - dwm-r1615-selfrestart
+  - dwm-resizecorners-6.3.diff
+  - dwm-scratchpad-20240321-061e9fe.diff
   - dwm-sortscreens-6.5
   - dwm-statuscmd-20210405-67d76bd
   - dwm-swallow-6.5
@@ -274,6 +277,11 @@ Patch downloaded from [suckless]
 
 ### dwm-resizecorners-6.3
 Resize window from the nearest corner, instead of warping the mouse to the bottom-right corner of the window. (NOTE: this was chosen instead of resizepoint because of several patching issues)
+
+Patch downloaded from [suckless]
+
+### dwm-scratchpad-20240321-061e9fe
+Spawn a terminal in the scratchpad, and toggle the scratchpad.
 
 Patch downloaded from [suckless]
 

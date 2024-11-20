@@ -16,7 +16,7 @@ static unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected 
 static unsigned int systrayspacing = 2;   /* systray spacing */
 static int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static int showsystray             = 1;   /* 0 means no systray */
-static char *fonts[]          = { "Iosevka:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static char *fonts[]          = { "Iosevka:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]     = "#15181E"; // Bar bg color
 static char normfgcolor[]     = "#7FC1E9"; // Bar fg color
@@ -108,6 +108,8 @@ static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 static const char *filemgrcmd[] = { "dolphin", NULL };
 static const char *roficmd[]    = { "rofi", "-show-icons", "-show", "drun", "-sidebar-mode", "-columns", "3", NULL };
 static const char *termcmd[]    = { TERMCMD, NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { TERMCMD, "-t", scratchpadname, "-g", "120x34", NULL };
 
 /* Scripts */
 #define S_PATH ".config/scripts/"
@@ -222,7 +224,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,  XK_o,    setcfact,   {.f =  0.00} },//Reset height
 
 	/* Tag actions */
-	{ MODKEY,           XK_0,      view,     {.ui = ~0 } }, //View all windows
+	{ MODKEY,           XK_0,      togglescratch, {0} }, // Toggle scratchpad
 	{ MODKEY,           XK_Tab,    view,     {0} }, // View previous tag
 	{ MODKEY,           XK_comma,  focusmon, {.i = -1 } }, // Focus prev mon
 	{ MODKEY,           XK_period, focusmon, {.i = +1 } }, // Focus next mon
@@ -233,16 +235,17 @@ static const Key keys[] = {
 	/* Programs */
 	{ MODKEY,           XK_Return, spawn,    {.v = termcmd } },    // Terminal
 	{ MODKEY,           XK_d,      spawn,    {.v = roficmd } },    // Rofi
+	{ MODKEY|ShiftMask, XK_Return, spawn,    {.v = scratchpadcmd } }, // Scratch
 	{ MODKEY|ShiftMask, XK_d,      spawn,    {.v = dmenucmd } },   // Dmenu
 	{ MODKEY|ShiftMask, XK_f,      spawn,    {.v = filemgrcmd } }, // File mgr
 	{ MODKEY|ShiftMask, XK_w,      spawn,    {.v = browsercmd } }, // Browser
 
 	/* XF* actions */
 	#include <X11/XF86keysym.h>
-	{ 0, XF86XK_AudioMute,         spawn,    SHCMD("pactl set-sink-mute 0 toggle; kill -44 $(pidof dwmblocks)") }, // Toggle volume
-	{ 0, XF86XK_AudioLowerVolume,  spawn,    SHCMD("pactl set-sink-volume 0 -5%; kill -44 $(pidof dwmblocks)") },     // Decrease volume
-	{ 0, XF86XK_AudioRaiseVolume,  spawn,    SHCMD("pactl set-sink-volume 0 +5%; kill -44 $(pidof dwmblocks)") },     // Increase volume
-	{ 0, XF86XK_AudioMicMute,      spawn,    SHCMD("pactl set-source-mute 0 toggle; kill -44 $(pidof dwmblocks)") }, // Toggle mic
+	{ 0, XF86XK_AudioMute,         spawn,    SHCMD("wpctl set-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks)") }, // Toggle volume
+	{ 0, XF86XK_AudioLowerVolume,  spawn,    SHCMD("wpctl set-volume @DEFAULT_SINK@ -5%; kill -44 $(pidof dwmblocks)") },     // Decrease volume
+	{ 0, XF86XK_AudioRaiseVolume,  spawn,    SHCMD("wpctl set-volume @DEFAULT_SINK@ +5%; kill -44 $(pidof dwmblocks)") },     // Increase volume
+	{ 0, XF86XK_AudioMicMute,      spawn,    SHCMD("wpctl set-mute @DEFAULT_SOURCE@ toggle; kill -44 $(pidof dwmblocks)") }, // Toggle mic
 	{ 0, XF86XK_MonBrightnessUp,   spawn,    SHCMD("xbacklight -inc 10; kill -45 $(pidof dwmblocks)") }, // Increase brightness
 	{ 0, XF86XK_MonBrightnessDown, spawn,    SHCMD("xbacklight -dec 10; kill -45 $(pidof dwmblocks)") }, // Decrease brightness
 	{ 0, XF86XK_TouchpadOn,        spawn,    SHCMD("synclient TouchpadOff=0") }, // Enable touchpad
