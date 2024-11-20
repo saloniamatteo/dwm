@@ -30,6 +30,21 @@ To obtain the scripts, you can:
 
 The other scripts (`scripts/.config/scripts`) are launched by dwm, not dwmblocks.
 
+## slock
+This repo also contains my build of slock.
+
+The following patches have been applied:
+  - slock-capscolor-20220921-35633d4.diff
+  - slock-colormessage-20200210-35633d4.diff
+  - slock-dpms-20231017-4f04554.diff
+  - slock-git-20161012-control-clear.diff
+
+These patches make slock more user-friendly, allowing us to show a message,
+as well as updating the bg color whenever a key is pressed, showing
+whether it's the caps-lock, shift, or any other.
+
+In addition, the monitor is automatically blanked after 30 seconds.
+
 ## libXft-bgra & fonts
 Glyph support in libXft was [finally fixed](https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/12)
 in 2022, after two and a half years. Better late than never?
