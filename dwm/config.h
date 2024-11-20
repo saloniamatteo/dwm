@@ -254,9 +254,8 @@ static const Key keys[] = {
 
 	/* Others */
 	{ 0,      XK_Caps_Lock,  spawn,  SHCMD("kill -36 dwmblocks") }, // Update dwmblocks on CapsLock
-	//{ 0,      XK_Print,      spawn,  SHCMD("cd ~/Pictures && scrot -q 100 -p 'Screenshot-%d%b%4Y-%a-%H-%M-%S.png'") },
-	{ 0,      XK_Print,      spawn,  SHCMD("scrot -q 100 -p \"$HOME/Pictures/Screenshot-%d%b%4Y-%a-%H-%M-%S.png\"") },
-	{ MODKEY, XK_Print,	     spawn,  SHCMD("cd ~/Pictures && scrot -q 100 -sp 'Screenshot-%d%b%4Y-%a-%H-%M-%S.png'") },
+	{ 0,      XK_Print,      spawn,  SHCMD("scrot -q 100 -p \"$HOME/Pictures/Screenshot-%4Y%m%d_%H%M%S.png\"") },
+	{ MODKEY, XK_Print,	     spawn,  SHCMD("scrot -q 100 -s -p \"$HOME/Pictures/Screenshot-%4Y%m%d_%H%M%S.png\"") },
 
 	/* Scripts */
 	{ SUPERKEY,           XK_d,      spawn, { .v = &scripts[0] } }, // Select display
