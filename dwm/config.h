@@ -243,8 +243,8 @@ static const Key keys[] = {
 	/* XF* actions */
 	#include <X11/XF86keysym.h>
 	{ 0, XF86XK_AudioMute,         spawn,    SHCMD("wpctl set-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks)") }, // Toggle volume
-	{ 0, XF86XK_AudioLowerVolume,  spawn,    SHCMD("wpctl set-volume @DEFAULT_SINK@ -5%; kill -44 $(pidof dwmblocks)") },     // Decrease volume
-	{ 0, XF86XK_AudioRaiseVolume,  spawn,    SHCMD("wpctl set-volume @DEFAULT_SINK@ +5%; kill -44 $(pidof dwmblocks)") },     // Increase volume
+	{ 0, XF86XK_AudioLowerVolume,  spawn,    SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },     // Decrease volume
+	{ 0, XF86XK_AudioRaiseVolume,  spawn,    SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },     // Increase volume
 	{ 0, XF86XK_AudioMicMute,      spawn,    SHCMD("wpctl set-mute @DEFAULT_SOURCE@ toggle; kill -44 $(pidof dwmblocks)") }, // Toggle mic
 	{ 0, XF86XK_MonBrightnessUp,   spawn,    SHCMD("xbacklight -inc 10; kill -45 $(pidof dwmblocks)") }, // Increase brightness
 	{ 0, XF86XK_MonBrightnessDown, spawn,    SHCMD("xbacklight -dec 10; kill -45 $(pidof dwmblocks)") }, // Decrease brightness
