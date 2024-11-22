@@ -16,7 +16,8 @@ static unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected 
 static unsigned int systrayspacing = 2;   /* systray spacing */
 static int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static int showsystray             = 1;   /* 0 means no systray */
-static char *fonts[]          = { "Iosevka:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+/* These values are set for a 2560x1440 monitor (T470p). Change to 10px, 10px for a smaller monitor (1366x768 on T440p) */
+static char *fonts[]          = { "Iosevka:size=9:antialias=true:autohint=true", "JoyPixels:pixelsize=20:antialias=true:autohint=true" };
 static char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]     = "#15181E"; // Bar bg color
 static char normfgcolor[]     = "#7FC1E9"; // Bar fg color
@@ -106,7 +107,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *browsercmd[] = { "librewolf-bin", NULL };
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *filemgrcmd[] = { "dolphin", NULL };
-static const char *roficmd[]    = { "rofi", "-show-icons", "-show", "drun", "-sidebar-mode", "-columns", "3", NULL };
+static const char *roficmd[]    = { "rofi", "-show-icons", "-show", "drun", "-sidebar-mode", "-columns", "3", "-dpi", "1", NULL };
 static const char *termcmd[]    = { TERMCMD, NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { TERMCMD, "-t", scratchpadname, "-g", "120x34", NULL };
