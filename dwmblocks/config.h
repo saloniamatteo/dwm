@@ -9,22 +9,18 @@
  */
 
 static const Block blocks[] = {
-	/*Icon*/	/*Command*/	/*Update Interval*/	/*Update Signal*/
-	{"",		"capslock",	1,			2},
-	{"",		"brightness",	0,			11},
-	{"",		"memory",	10,			14},
-	{"",		"cpu",		10,			18},
-	{"",		"volume",	0,			10},
-	{"",		"fanspeed",	5,			12},
-	{"",		"internet",	5,			4},
-	{"",		"battery",	5,			3},
-	{"",		"clock",	20,			1},
+	// Icon  Command    Interval (s)    Update signal
+	//{"",    "capslock",           1,     1},
+	{"",    "camera",             1,     2},
+	{"",    "brightness",         5,     3},
+	{"",    "memory",            10,     4},
+	{"",    "cpu",                5,     5},
+	{"",    "volume",             3,     6},
+	{"",    "fanspeed",           5,     7},
+	{"",    "internet",           5,     8},
+	{"",    "battery",           10,     9},
+	{"",    "clock",             30,    10},
 };
 
 //Sets delimiter between status commands. NULL character ('\0') means no delimiter.
 static char *delim = "|";
-
-// Have dwmblocks automatically recompile and run when you edit this file in
-// vim with the following line in your vimrc/init.vim:
-
-// autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
