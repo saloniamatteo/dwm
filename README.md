@@ -231,22 +231,23 @@ The `randomwall` script, which is included but not ran by dwm, will set a random
 Here the patches are explained in more detail.
 
 The following patches are applied:
-  - dwm-alpha-systray-6.3_full
-  - dwm-centeredsizehints-6.5
-  - dwm-cfacts-vanitygaps-6.5_full
-  - dwm-dragmfact-6.5
-  - dwm-focusfollowmouse-6.5
-  - dwm-inplacerotate-6.2
-  - dwm-netclientliststacking-6.5
-  - dwm-placemouse-6.5
-  - dwm-r1615-selfrestart
-  - dwm-resizecorners-6.3.diff
-  - dwm-scratchpad-20240321-061e9fe.diff
-  - dwm-sortscreens-6.5
-  - dwm-statuscmd-20210405-67d76bd
-  - dwm-swallow-6.5
-  - dwm-togglefullscreen-6.5
-  - dwm-xresources-6.2
+  - `dwm-alpha-systray-6.3_full`
+  - `dwm-centeredsizehints-6.5`
+  - `dwm-cfacts-vanitygaps-6.5_full`
+  - `dwm-dragmfact-6.5`
+  - `dwm-focusfollowmouse-6.5`
+  - `dwm-inplacerotate-6.2`
+  - `dwm-netclientliststacking-6.5`
+  - `dwm-placemouse-6.5`
+  - `dwm-r1615-selfrestart`
+  - `dwm-resizecorners-6.3.diff`
+  - `dwm-rulerefresher-6.2.diff`
+  - `dwm-scratchpad-20240321-061e9fe.diff`
+  - `dwm-sortscreens-6.5`
+  - `dwm-statuscmd-20210405-67d76bd`
+  - `dwm-swallow-6.5`
+  - `dwm-togglefullscreen-6.5`
+  - `dwm-xresources-6.2`
 
 ### dwm-alpha-systray-6.3_full
 Add translucent bars to dwm, while also adding a system tray (systray).
@@ -295,6 +296,11 @@ Patch downloaded from [suckless]
 
 ### dwm-resizecorners-6.3
 Resize window from the nearest corner, instead of warping the mouse to the bottom-right corner of the window. (NOTE: this was chosen instead of resizepoint because of several patching issues)
+
+Patch downloaded from [suckless]
+
+### dwm-rulerefresher-6.2.diff
+This patch reruns the defined rules on a window name change. Every zoom window has the same name at creation und changes it afterwards. That renders different rules for different Zoom windows useless. With this patch the rules are reapplied after the rename.
 
 Patch downloaded from [suckless]
 
