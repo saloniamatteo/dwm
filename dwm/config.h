@@ -48,6 +48,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                instance    title                tags mask  isfloating  isterminal  noswallow  monitor */
+	{ NULL,                 NULL,      "Appearance",          0,         1,          0,          -1,        -1 },
+	{ NULL,                 NULL,      "Event Tester",        0,         0,          0,           1,        -1 }, /* xev */
+	{ NULL,                 NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom meeting window */
+	{ NULL,                 NULL,      "Network Connections", 0,         1,          0,          -1,        -1 },
+	{ NULL,                 NULL,      "Steam Settings",      0,         1,          0,          -1,        -1 },
+	{ NULL,                 NULL,      "Volume Control",      0,         1,          0,          -1,        -1 },
 	{ "copyq",              NULL,      NULL,                  0,         1,          0,           0,        -1 },
 	{ "Gimp",               NULL,      NULL,                  0,         0,          0,           0,        -1 },
 	{ "Firefox",            NULL,      NULL,                  0,         0,          0,          -1,        -1 },
@@ -58,10 +64,6 @@ static const Rule rules[] = {
 	{ "VirtualBox",         NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Settings window */
 	{ "VirtualBox Manager", NULL,      NULL,                  0,         0,          0,           0,        -1 },
 	{ "zoom",               NULL,      NULL,                  0,         1,          0,          -1,        -1 },
-	{ NULL,                 NULL,      "Appearance",          0,         1,          0,          -1,        -1 },
-	{ NULL,                 NULL,      "Event Tester",        0,         0,          0,           1,        -1 }, /* xev */
-	{ NULL,                 NULL,      "Network Connections", 0,         1,          0,          -1,        -1 },
-	{ NULL,                 NULL,      "Steam Settings",      0,         1,          0,          -1,        -1 },
 };
 
 /* layout(s) */
@@ -179,11 +181,11 @@ static const Key keys[] = {
 	TAGKEYS(XK_9, 8)
 
 	/* Actions */
-	{ MODKEY,           XK_b,     togglebar,      {0} }, // Toggle statusbar
+	{ MODKEY,           XK_b,     togglebar,      {0} },   // Toggle statusbar
 	{ MODKEY,           XK_f,     togglefullscreen, {0} }, // Fullscreen
-	{ MODKEY|ShiftMask, XK_c,     killclient,     {0} }, // Kill client
-    { MODKEY|ShiftMask, XK_r,     self_restart,   {0} }, // Restart DWM
-	{ MODKEY|ShiftMask, XK_q,     quit,           {0} }, // Close DWM
+	{ MODKEY|ShiftMask, XK_c,     killclient,     {0} },   // Kill client
+    { MODKEY|ShiftMask, XK_r,     self_restart,   {0} },   // Restart DWM
+	{ MODKEY|ShiftMask, XK_q,     quit,           {0} },   // Close DWM
 
 	/* Layouts */
 	{ MODKEY,           XK_t,     setlayout, {.v = &layouts[0]} }, // Tile
