@@ -4,6 +4,7 @@ VERSION = 6.5
 # Customize below to fit your system
 
 # paths
+# NOTE: if you change prefix, make sure to modify DWM_PATH in selfrestart.c!
 PREFIX = /usr/local
 MANPREFIX = ${PREFIX}/share/man
 
