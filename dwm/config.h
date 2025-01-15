@@ -50,7 +50,6 @@ static const Rule rules[] = {
 	/* class                instance    title                tags mask  isfloating  isterminal  noswallow  monitor */
 	{ NULL,                 NULL,      "Appearance",          0,         1,          0,          -1,        -1 },
 	{ NULL,                 NULL,      "Event Tester",        0,         0,          0,           1,        -1 }, /* xev */
-	{ NULL,                 NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom meeting window */
 	{ NULL,                 NULL,      "Network Connections", 0,         1,          0,          -1,        -1 },
 	{ NULL,                 NULL,      "Steam Settings",      0,         1,          0,          -1,        -1 },
 	{ NULL,                 NULL,      "Volume Control",      0,         1,          0,          -1,        -1 },
@@ -63,7 +62,9 @@ static const Rule rules[] = {
 	{ "St",                 NULL,      NULL,                  0,         0,          1,           0,        -1 },
 	{ "VirtualBox",         NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Settings window */
 	{ "VirtualBox Manager", NULL,      NULL,                  0,         0,          0,           0,        -1 },
-	{ "zoom",               NULL,      NULL,                  0,         1,          0,          -1,        -1 },
+	{ "zoom",               NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom meeting window */
+	{ "zoom",               NULL,      "Settings",            0,         1,          0,          -1,        -1 }, /* Zoom settings window */
+	{ "zoom",               NULL,      "Zoom Workplace",      0,         1,          0,          -1,        -1 }, /* All other zoom windows */
 };
 
 /* layout(s) */
