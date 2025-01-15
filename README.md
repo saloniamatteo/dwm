@@ -292,6 +292,15 @@ Patch downloaded from [bakkeby]
 ### dwm-r1615-selfrestart
 Restart dwm in place.
 
+NOTE: this patch has been modified so that `dwm` **always** fetches the new executable from `/usr/local/bin/dwm`.
+If you modified `PREFIX` in `config.mk`, make sure you also modify `DWM_PATH` in `selfrestart.c`:
+
+```c
+// Where the dwm executable lives
+// Change this if you change PREFIX in config.mk!
+#define DWM_PATH "/usr/local/bin/dwm"
+```
+
 Patch downloaded from [suckless]
 
 ### dwm-resizecorners-6.3
