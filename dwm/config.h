@@ -184,7 +184,7 @@ static const Key keys[] = {
 	{ MODKEY,           XK_b,     togglebar,      {0} },   // Toggle statusbar
 	{ MODKEY,           XK_f,     togglefullscreen, {0} }, // Fullscreen
 	{ MODKEY|ShiftMask, XK_c,     killclient,     {0} },   // Kill client
-    { MODKEY|ShiftMask, XK_r,     self_restart,   {0} },   // Restart DWM
+	{ MODKEY|ShiftMask, XK_r,     self_restart,   {0} },   // Restart DWM
 	{ MODKEY|ShiftMask, XK_q,     quit,           {0} },   // Close DWM
 
 	/* Layouts */
