@@ -64,6 +64,7 @@ static const Rule rules[] = {
 	{ "VirtualBox Manager", NULL,      NULL,                  0,         0,          0,           0,        -1 },
 	{ "zoom",               NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom: meeting window */
 	{ "zoom",               NULL,      "Zoom Workplace",      0,         1,          0,          -1,        -1 }, /* Zoom: initial window */
+	{ "zoom",               NULL,      "zoom",                0,         1,          0,          -1,        -1 }, /* Zoom: generic window */
 };
 
 /* layout(s) */
