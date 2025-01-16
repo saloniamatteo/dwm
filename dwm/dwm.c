@@ -3088,6 +3088,10 @@ updaterules(Client *c)
 
 	c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : c->mon->tagset[c->mon->seltags];
 
+	// If the client (window) name is empty, make it floating
+	if (!c->name[0] || !strlen(c->name))
+		c->isfloating = 1;
+
 	// end apply rules
 	if (c->isfloating)
 		resize(c, c->x, c->y, c->w, c->h, 0);
