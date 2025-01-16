@@ -60,6 +60,7 @@ static const Rule rules[] = {
 	{ "LibreWolf",          NULL,      NULL,                  0,         0,          0,          -1,        -1 },
 	{ "LibreWolf",          "Browser", NULL,                  0,         1,          0,          -1,        -1 }, /* Floating windows */
 	{ "St",                 NULL,      NULL,                  0,         0,          1,           0,        -1 },
+	{ "St-float",           NULL,      NULL,                  0,         1,          1,           0,        -1 }, /* Floating terminal */
 	{ "VirtualBox",         NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Settings window */
 	{ "VirtualBox Manager", NULL,      NULL,                  0,         0,          0,           0,        -1 },
 	{ "zoom",               NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom: meeting window */
@@ -112,7 +113,8 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-#define TERMCMD  "/usr/local/bin/st"
+#define TERMCMD   "/usr/local/bin/st"
+#define FTERMCMD  TERMCMD, "-c", "St-float"
 #define STATUSBAR "dwmblocks"
 
 /* commands */
@@ -127,23 +129,23 @@ static const char *scratchpadcmd[] = { TERMCMD, "-t", scratchpadname, "-g", "120
 
 /* Scripts */
 #define S_PATH ".config/scripts/"
-static const char *scripts[][4] = {
+static const char *scripts[][5] = {
 	/* Termcmd  -e   PATH    script name */
-	{ TERMCMD, "-e", S_PATH "displayselect",  NULL },
-	{ TERMCMD, "-e", S_PATH "set-fan",        NULL },
-	{ TERMCMD, "-e", S_PATH "inactivity",     NULL },
-	{ TERMCMD, "-e", S_PATH "screenlock",     NULL },
-	{ TERMCMD, "-e", S_PATH "dmenumount",     NULL },
-	{ TERMCMD, "-e", S_PATH "screenrecord",   NULL },
-	{ TERMCMD, "-e", S_PATH "toggletouchpad", NULL },
-	{ TERMCMD, "-e", S_PATH "dmenuumount",    NULL },
-	{ TERMCMD, "-e", S_PATH "randomwall-now", NULL },
-	{ TERMCMD, "-e", S_PATH "safe-switch",    NULL },
-	{ TERMCMD, "-e", S_PATH "dmenuunicode",   NULL },
-	{ TERMCMD, "-e", S_PATH "launcher",       NULL },
-	{ TERMCMD, "-e", S_PATH "reminder",       NULL },
-	{ TERMCMD, "-e", S_PATH "disk-usage",     NULL },
-	{ TERMCMD, "-e", S_PATH "downloader",     NULL },
+	{ TERMCMD,  "-e", S_PATH "displayselect"  },
+	{ TERMCMD,  "-e", S_PATH "set-fan"        },
+	{ TERMCMD,  "-e", S_PATH "inactivity"     },
+	{ FTERMCMD, "-e", S_PATH "screenlock"     },
+	{ TERMCMD,  "-e", S_PATH "dmenumount"     },
+	{ TERMCMD,  "-e", S_PATH "screenrecord"   },
+	{ TERMCMD,  "-e", S_PATH "toggletouchpad" },
+	{ TERMCMD,  "-e", S_PATH "dmenuumount"    },
+	{ TERMCMD,  "-e", S_PATH "randomwall-now" },
+	{ TERMCMD,  "-e", S_PATH "safe-switch"    },
+	{ TERMCMD,  "-e", S_PATH "dmenuunicode"   },
+	{ TERMCMD,  "-e", S_PATH "launcher"       },
+	{ TERMCMD,  "-e", S_PATH "reminder"       },
+	{ TERMCMD,  "-e", S_PATH "disk-usage"     },
+	{ TERMCMD,  "-e", S_PATH "downloader"     },
 	{ NULL },
 };
 
