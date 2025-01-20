@@ -157,8 +157,8 @@ All the other keybindings can be found in `config.h`.
 - Move window right: <kbd>ALT</kbd><kbd>S</kbd><kbd>l</kbd>
 - Decrease window width: <kbd>ALT</kbd><kbd>h</kbd>
 - Increase window width: <kbd>ALT</kbd><kbd>l</kbd>
-- Focus window down/anti-clockwise: <kbd>ALT</kbd><kbd>j</kbd>
-- Focus window up/clockwise: <kbd>ALT</kbd><kbd>k</kbd>
+- Focus window down/clockwise: <kbd>ALT</kbd><kbd>j</kbd>
+- Focus window up/anti-clockwise: <kbd>ALT</kbd><kbd>k</kbd>
 
 All the other keybindings can be found in `config.h`.
 
