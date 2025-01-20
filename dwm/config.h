@@ -63,6 +63,7 @@ static const Rule rules[] = {
 	{ "St-float",           NULL,      NULL,                  0,         1,          1,           0,        -1 }, /* Floating terminal */
 	{ "VirtualBox",         NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Settings window */
 	{ "VirtualBox Manager", NULL,      NULL,                  0,         0,          0,           0,        -1 },
+	{ "torbrowser-launcher",NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Tor Browser Launcher */
 	{ "zoom",               NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom: meeting window */
 	{ "zoom",               NULL,      "Zoom Workplace",      0,         1,          0,          -1,        -1 }, /* Zoom: initial window */
 	{ "zoom",               NULL,      "zoom",                0,         1,          0,          -1,        -1 }, /* Zoom: generic window */
@@ -226,8 +227,8 @@ static const Key keys[] = {
 	/* Window actions */
 	{ MODKEY,            XK_h,    setmfact,   {.f = -0.05} }, //Dec win width
 	{ MODKEY,            XK_l,    setmfact,   {.f = +0.05} }, //Inc win width
-	{ MODKEY,            XK_k,    focusstack, {.i = +1 } }, // Focus up/clock
-	{ MODKEY,            XK_j,    focusstack, {.i = -1 } }, // Focus dn/a-clk
+	{ MODKEY,            XK_j,    focusstack, {.i = +1 } }, // Focus dn/a-clk
+	{ MODKEY,            XK_k,    focusstack, {.i = -1 } }, // Focus up/clock
 	{ MODKEY,            XK_m,    incnmaster, {.i = +1 } }, // Add master
 	{ MODKEY|ShiftMask,  XK_m,    incnmaster, {.i = -1 } }, // Remove master
 	{ MODKEY,            XK_p,    zoom,       {0} }, // Selected win->master
