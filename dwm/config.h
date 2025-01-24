@@ -48,25 +48,28 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                instance    title                tags mask  isfloating  isterminal  noswallow  monitor */
-	{ NULL,                 NULL,      "Appearance",          0,         1,          0,          -1,        -1 },
-	{ NULL,                 NULL,      "Event Tester",        0,         0,          0,           1,        -1 }, /* xev */
-	{ NULL,                 NULL,      "Network Connections", 0,         1,          0,          -1,        -1 },
-	{ NULL,                 NULL,      "Steam Settings",      0,         1,          0,          -1,        -1 },
-	{ NULL,                 NULL,      "Volume Control",      0,         1,          0,          -1,        -1 },
-	{ "copyq",              NULL,      NULL,                  0,         1,          0,           0,        -1 },
-	{ "Gimp",               NULL,      NULL,                  0,         0,          0,           0,        -1 },
-	{ "Firefox",            NULL,      NULL,                  0,         0,          0,          -1,        -1 },
-	{ "Firefox",            "Browser", NULL,                  0,         1,          0,          -1,        -1 }, /* Floating windows */
-	{ "LibreWolf",          NULL,      NULL,                  0,         0,          0,          -1,        -1 },
-	{ "LibreWolf",          "Browser", NULL,                  0,         1,          0,          -1,        -1 }, /* Floating windows */
-	{ "St",                 NULL,      NULL,                  0,         0,          1,           0,        -1 },
-	{ "St-float",           NULL,      NULL,                  0,         1,          1,           0,        -1 }, /* Floating terminal */
-	{ "VirtualBox",         NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Settings window */
-	{ "VirtualBox Manager", NULL,      NULL,                  0,         0,          0,           0,        -1 },
-	{ "torbrowser-launcher",NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Tor Browser Launcher */
-	{ "zoom",               NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom: meeting window */
-	{ "zoom",               NULL,      "Zoom Workplace",      0,         1,          0,          -1,        -1 }, /* Zoom: initial window */
-	{ "zoom",               NULL,      "zoom",                0,         1,          0,          -1,        -1 }, /* Zoom: generic window */
+	{ NULL,                   NULL,      "Appearance",          0,         1,          0,          -1,        -1 },
+	{ NULL,                   NULL,      "Event Tester",        0,         0,          0,           1,        -1 }, /* xev */
+	{ NULL,                   NULL,      "Network Connections", 0,         1,          0,          -1,        -1 },
+	{ NULL,                   NULL,      "Steam Settings",      0,         1,          0,          -1,        -1 },
+	{ NULL,                   NULL,      "Volume Control",      0,         1,          0,          -1,        -1 },
+	{ "copyq",                NULL,      NULL,                  0,         1,          0,           0,        -1 },
+	{ "Gimp",                 NULL,      NULL,                  0,         0,          0,           0,        -1 },
+	{ "Firefox",              NULL,      NULL,                  0,         0,          0,          -1,        -1 },
+	{ "Firefox",              "Browser", NULL,                  0,         1,          0,          -1,        -1 }, /* Floating windows */
+	{ "LibreWolf",            NULL,      NULL,                  0,         0,          0,          -1,        -1 },
+	{ "LibreWolf",            "Browser", NULL,                  0,         1,          0,          -1,        -1 }, /* Floating windows */
+	{ "lxqt-openssh-askpass", NULL,      NULL,                  0,         1,          0,          -1,        -1 }, /* LXQt SSH Askpass */
+	{ "St",                   NULL,      NULL,                  0,         0,          1,           0,        -1 },
+	{ "St-float",             NULL,      NULL,                  0,         1,          1,           0,        -1 }, /* Floating terminal */
+	{ "VirtualBox",           NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Settings window */
+	{ "VirtualBox Manager",   NULL,      NULL,                  0,         0,          0,           0,        -1 },
+	{ "torbrowser-launcher",  NULL,      NULL,                  0,         1,          0,           0,        -1 }, /* Tor Browser Launcher */
+	{ "zoom",                 NULL,      "Breakout rooms",      0,         1,          0,          -1,        -1 }, /* Zoom: breakout rooms window */
+	{ "zoom",                 NULL,      "Meeting",             0,         0,          0,          -1,        -1 }, /* Zoom: meeting window */
+	{ "zoom",                 NULL,      "Meeting chat",        0,         1,          0,          -1,        -1 }, /* Zoom: chat window */
+	{ "zoom",                 NULL,      "Zoom Workplace",      0,         1,          0,          -1,        -1 }, /* Zoom: initial window */
+	{ "zoom",                 NULL,      "zoom",                0,         1,          0,          -1,        -1 }, /* Zoom: generic window */
 };
 
 /* layout(s) */
