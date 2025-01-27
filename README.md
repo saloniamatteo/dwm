@@ -36,11 +36,17 @@ The other scripts (`scripts/.config/scripts`) are launched by dwm, not dwmblocks
 ## slock
 This repo also contains my build of slock.
 
+![slock](Screenshots/slock.jpg)
+![slock-typing](Screenshots/slock-typing.jpg)
+![slock-err](Screenshots/slock-err.jpg)
+
 The following patches have been applied:
-  - slock-capscolor-20220921-35633d4.diff
-  - slock-colormessage-20200210-35633d4.diff
-  - slock-dpms-20231017-4f04554.diff
-  - slock-git-20161012-control-clear.diff
+  - slock-capscolor-20220921-35633d4
+  - slock-colormessage-20200210-35633d4
+  - slock-dpms-20231017-4f04554
+  - slock-dwmlogoandblurscreen-1.0
+  - slock-git-20161012-control-clear
+  - slock-mediakeys-1.4
 
 These patches make slock more user-friendly, allowing us to show a message,
 as well as updating the bg color whenever a key is pressed, showing
