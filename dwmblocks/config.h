@@ -11,11 +11,10 @@
 static const Block blocks[] = {
 	// Icon  Command    Interval (s)    Update signal
 	//{"",    "capslock",           1,     1},
-	{"",    "camera",             1,     2},
 	{"",    "brightness",         5,     3},
 	{"",    "memory",            10,     4},
 	{"",    "cpu",                5,     5},
-	{"",    "volume",             3,     6},
+	{"",    "media",              3,     6},
 	{"",    "fanspeed",           5,     7},
 	{"",    "internet",           5,     8},
 	{"",    "battery",           10,     9},
